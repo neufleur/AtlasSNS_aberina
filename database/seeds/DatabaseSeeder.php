@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(usersTableSeeder::class);
-        
+
     }
 }
 //⓶usersTableSeederを呼び出す↑

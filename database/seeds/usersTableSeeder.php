@@ -11,6 +11,7 @@ class usersTableSeeder extends Seeder
      */
     public function run()
     {
+        if(isset($password))
 
         DB::table('users')->insert([
             ['name' => 'Atlas一郎',
@@ -35,7 +36,10 @@ class usersTableSeeder extends Seeder
         ]);
     }
 }
+
+
 //passwardはハッシュ化　新規登録のページUserFactory.php参考　bcryptとは暗号関数
  //シード作成　php artisan make:seeder usersTableSeederで作ったページ　名前登録する
         //⓵datebaseseederに移動する
-        
+
+

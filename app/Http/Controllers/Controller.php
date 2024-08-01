@@ -13,10 +13,6 @@ class Controller extends BaseController
 
 //送ったデータを一時的にサーバ側に保存する
 
-//public function login(Request $request)
-//{
-   
 
-//}
 
 }
