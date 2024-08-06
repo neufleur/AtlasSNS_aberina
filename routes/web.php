@@ -26,6 +26,8 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
+Route::group(['middleware' => 'auth'], function() {
+
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
@@ -39,3 +41,7 @@ Route::get('/search','UsersController@index');
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
+});
+
+//authというミドルウェアは、ユーザがログインしているかどうかを確認できるミドルウェアです。
+//送られてきたデータが、指定された条件を満たしているかをチェックしてルーティングを制限するものです。

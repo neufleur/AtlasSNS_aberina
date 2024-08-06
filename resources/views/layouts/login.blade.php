@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +24,10 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
+        <h1><a><img src="{{ asset('/css/images/logo.png') }}" ></a></h1>
             <div id="">
                 <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
+                    <p>さん<img src="{{ asset('/css/images/arrow.png') }}" ></p>
                 <div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
@@ -62,3 +64,4 @@
     <script src="JavaScriptファイルのURL"></script>
 </body>
 </html>
+
