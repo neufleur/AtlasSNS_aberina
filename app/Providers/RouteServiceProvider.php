@@ -20,8 +20,8 @@ class RouteServiceProvider extends ServiceProvider
      * The path to the "home" route for your application.
      *
      * @var string
-     */
-    public const HOME = '/home';
+     */ //ログインしている時topページに移動
+    public const HOME = '/top';
 
     /**
      * Define your route model bindings, pattern filters, etc.
