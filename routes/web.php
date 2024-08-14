@@ -40,6 +40,8 @@ Route::get('/top','PostsController@index');
 Route::get('/profile','UsersController@profile');
 
 Route::get('/search','UsersController@search');
+Route::post('/search','UsersController@search');
+//検索用のRoute作る
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
