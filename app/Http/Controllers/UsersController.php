@@ -5,19 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 //use宣言がないとclassエラーが起こる
 
 class UsersController extends Controller
 {
     //
     public function profile(){
-        return view('users.profile');
+    $auth = Auth::user();
+
+        return view('users.profile', ['auth'=>$auth]);
+
     }
 
     //検索機能の実装
     public function search(Request $request){
         //ユーザーテーブルから全てのレコードを取得する↓
         $users = User::get();
+        $users = DB::table('users')->get();
         $keyword = $request->input('keyword'); //キーワードを取得
             if(!empty($keyword)){
             $users->where('username','LIKE',"%" . $keyword . "%");

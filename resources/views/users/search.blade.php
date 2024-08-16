@@ -2,6 +2,23 @@
 
 @section('content')
 
+<?php
+
+try {
+    if(isset($_POST["search"])){
+    // 慣習としてPDOインスタンスはdbh(データベースハンドルの略)にする mysqlに繋げる
+    $dbh = new PDO("mysql:dbname=atlas_sns; host=localhost; charset=utf8", "root" ,"root");
+    $sql="SELECT username images FROM users";
+    $stmt=$dbh->query($sql); //$sqlで定義されたSQL文がデータベースに送信され、実行の準備ができる
+    $stmt->execute(); //実行
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC); // 結果セットに残っている全ての行を含む配列を返す　取得結果がゼロ件だった場合は空の配列を返す
+}
+
+  } catch(PDOException $e) { //エラーを出す
+    echo $e -> getMessage(); //受け取る
+  }
+
+?>
 
 <div id="search">
     <form action='/search' method="post"> <!--actionを変える -->
@@ -21,7 +38,7 @@
         <!-- 自分以外のユーザー表示 2つの値が異なるかどうかを確認　==　-->
         @if (!($users->username == $users->username))
         <tr>
-            <tb>{{ $users->username }}</tb>
+            <td>{{ $users->username }}</td>
             <td><img src="{{ $users->images }}" alt="ユーザーアイコン"></td>
         </tr>
         @endif
@@ -32,3 +49,4 @@
 
 @endsection
 
+SELECT * FROM users WHERE username;
