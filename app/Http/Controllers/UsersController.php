@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+//use Illuminate\Database\PDO;
 use Illuminate\Support\Facades\DB;
 //use宣言がないとclassエラーが起こる
 
@@ -23,11 +24,11 @@ class UsersController extends Controller
     public function search(Request $request){
         //ユーザーテーブルから全てのレコードを取得する↓
         $users = User::get();
-        $users = DB::table('users')->get();
         $keyword = $request->input('keyword'); //キーワードを取得
-            if(!empty($keyword)){
-            $users->where('username','LIKE',"%" . $keyword . "%");
-        }
+        if(!empty($keyword)){
+            $users->where('username','LIKE',"%" . $keyword . "%")->get();
+            }
+        //$result = $users->fetchAll(PDO::FETCH_ASSOC); // 結果セットに残っている全ての行を含む配列を返す　取得結果がゼロ件だった場合は空の配列を返す
         return view('users.search', compact('users','keyword'));
     }
 
