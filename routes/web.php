@@ -38,6 +38,8 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
+Route::post('/profile','UsersController@profile');
+Route::post('/profile/update','UsersController@updateProfile');
 
 Route::get('/search','UsersController@search');
 Route::post('/search','UsersController@search');

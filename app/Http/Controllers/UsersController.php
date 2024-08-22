@@ -13,12 +13,48 @@ use Illuminate\Support\Facades\DB;
 class UsersController extends Controller
 {
     //
-    public function profile(){
-    $auth = Auth::user();
+    public function profile(Request $request){
+       $auth = Auth::user();
 
-        return view('users.profile', ['auth'=>$auth]);
+    return view('users.profile', ['auth'=>$auth]);
+}
 
+public function updateProfile(Request $request){
+    //inputで保存
+       $id = $request->input('id');
+       $username = $request->input('username');
+       $mail = $request->input('mail');
+       $password = $request->input('password');
+       $bio = $request->input('bio');
+       $images = $request->file('images');
+       if (!empty($uploadFile)) {
+        $thumbnailName = $request->file('image')->hashName();
+        $request->file('image')->storeAs('public/images', $thumbnailName);
+
+        $auth->images = $thumbnailName;
     }
+
+       //updateで更新　テーブルから取得したいユーザーを決める条件として、where句での条件にこの$id変数が設定されている
+       User::where('id', $id)->update([
+         'username' => $username,
+         'mail' => $mail,
+         'password' => $password,
+         'bio' => $bio,
+         'images' => $images
+   ]);
+    //$validated = $request->validate([
+       //'username' => 'required|min:2|max:12',
+       // 'mail' => 'required|email|min:5|max:40|unique:users,mail',
+       // 'password' => 'required|alpha_num|min:8|max:20|confirmed',
+       // 'bio' => 'string|max:150',
+       // 'image'=>'File|mimes:jpg,png,bmp,gif,svg',
+     // ]);
+
+    //}
+ return redirect('/top'); //view()はWebページのアクセス時などのGET処理時 redirect()はフォーム送信などのPOST
+}
+
+
 
     //検索機能の実装
     public function search(Request $request){
@@ -33,6 +69,7 @@ class UsersController extends Controller
     }
 
 }
+
 // $users = Auth::user();今ログインしている人のユーザーを取得　
 // $request入力された値を$keywordに格納→$keywordで何かしらの値を受け取った場合は、if文の中で取得するデータを絞りこむ
 // =>添字にあたる'users'部分（キー）を文字列で指定
