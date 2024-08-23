@@ -20,19 +20,20 @@ class UsersController extends Controller
 }
 
 public function updateProfile(Request $request){
+
     //inputで保存
        $id = $request->input('id');
        $username = $request->input('username');
        $mail = $request->input('mail');
        $password = $request->input('password');
        $bio = $request->input('bio');
-       $images = $request->file('images');
-       if (!empty($uploadFile)) {
-        $thumbnailName = $request->file('image')->hashName();
-        $request->file('image')->storeAs('public/images', $thumbnailName);
-
-        $auth->images = $thumbnailName;
-    }
+       //dd($request->file('images'));
+       //画像登録 if文で画像必須をなくす なければそのままに
+       if(!empty($request->file('images'))) {
+        $images = $request->file('images')->getClientOriginalName(); //ファイルにimages送る getClientOriginalName アップロードされたファイル名を取得
+        //dd($images);
+        $request->file('images')->storeAs('public/images',$images); //storeAsメソッドを使用することで保存するファイル名を指定できる
+       }
 
        //updateで更新　テーブルから取得したいユーザーを決める条件として、where句での条件にこの$id変数が設定されている
        User::where('id', $id)->update([
@@ -40,15 +41,16 @@ public function updateProfile(Request $request){
          'mail' => $mail,
          'password' => $password,
          'bio' => $bio,
-         'images' => $images
+         'images' => $images,
    ]);
-    //$validated = $request->validate([
-       //'username' => 'required|min:2|max:12',
-       // 'mail' => 'required|email|min:5|max:40|unique:users,mail',
-       // 'password' => 'required|alpha_num|min:8|max:20|confirmed',
-       // 'bio' => 'string|max:150',
-       // 'image'=>'File|mimes:jpg,png,bmp,gif,svg',
-     // ]);
+
+    $validated = $request->validate([
+       'username' => 'required|min:2|max:12',
+       'mail' => 'required|email|min:5|max:40|unique:users,mail',
+       'password' => 'required|alpha_num|min:8|max:20|confirmed',
+       'bio' => 'string|max:150',
+       'image'=>'File|mimes:jpg,png,bmp,gif,svg',
+      ]);
 
     //}
  return redirect('/top'); //view()はWebページのアクセス時などのGET処理時 redirect()はフォーム送信などのPOST
@@ -62,8 +64,8 @@ public function updateProfile(Request $request){
         $users = User::get();
         $keyword = $request->input('keyword'); //キーワードを取得
         if(!empty($keyword)){
-            $users->where('username','LIKE',"%" . $keyword . "%")->get();
-            }
+           $users = User::where('username','LIKE',"%" . $keyword . "%")->get();
+            } //User:: User::モデルを介してユーザーズテーブルにアクセスができる　
         //$result = $users->fetchAll(PDO::FETCH_ASSOC); // 結果セットに残っている全ての行を含む配列を返す　取得結果がゼロ件だった場合は空の配列を返す
         return view('users.search', compact('users','keyword'));
     }

@@ -27,7 +27,7 @@
         <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}" ></a></h1>
             <div id="">
                 <div id="">
-                    <p>{{ session('username') }}さん<img src="{{ asset('images/icon1.png') }}" ></p>
+                    <p>{{ session('username') }}さん</p><img src="{{ asset('storage/images/' . $auth ->images) }}"></p>
                 <div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
