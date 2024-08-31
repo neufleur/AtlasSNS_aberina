@@ -21,8 +21,8 @@
         <!-- 今自分がログインしているユーザー　==　他の人がログインしているユーザー 2つの値が異なるかどうかを確認　-->
         @if (!(Auth::user()->username == $users->username))
         <tr>
+        <td><img src="{{ $users->images }}"></td>
             <td>{{ $users->username }}</td>
-            <td><img src="{{ $users->images }}" alt="ユーザーアイコン"></td>
         </tr>
         @endif
         @endforeach

@@ -24,16 +24,20 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}" ></a></h1>
+
+        <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
             <div id="">
-                <div id="">
-                    <p>{{ session('username') }}さん</p><img src="{{ asset('storage/images/' . $auth ->images) }}"></p>
-                <div>
+                <div class="menu">
+                    <p class="username">{{ session('username') }}さん</p>
+                 <p class="icon"><img src="{{ asset('storage/images/' . Auth::user()->images) }}"></p>
+                 </div>
+                <div class="nav-menu">
                 <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></p></li>
+                    <li class="accordion-lists"><a href="/top">HOME</a></li>
+                    <li class="accordion-lists"><a href="/profile">プロフィール編集</a></li>
+                    <li class="accordion-lists"><a href="/logout">ログアウト</a></p></li>
                 </ul>
+                </div>
             </div>
         </div>
     </header>

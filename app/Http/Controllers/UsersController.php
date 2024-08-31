@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Database\Eloquent\Model;
 //use Illuminate\Database\PDO;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 //use宣言がないとclassエラーが起こる
 
 class UsersController extends Controller
@@ -21,7 +22,22 @@ class UsersController extends Controller
 
 public function updateProfile(Request $request){
 
-    //inputで保存
+    $validate = Validator::make($request->all(), [ //バリデーションを実行
+        'username' => 'required|min:2|max:12',
+         'mail' => 'required|email|min:5|max:40|unique:users,mail',
+         'password' => 'required|alpha_num|min:8|max:20|confirmed',
+         'bio' => 'string|max:150',
+        'image'=>'File|mimes:jpg,png,bmp,gif,svg',
+        ]);
+
+        if ($validate->fails()) {
+          return redirect('/profile');
+          // エラーを返すか、エラーとともにリダイレクトする
+          //-> withInput() // セッション()に入力値すべてを入れる
+         // ->withErrors('$validate'); // セッション(errors)にエラーの情報を入れる
+
+      }else{
+        //inputで最終的に保存したい記述
        $id = $request->input('id');
        $username = $request->input('username');
        $mail = $request->input('mail');
@@ -43,16 +59,8 @@ public function updateProfile(Request $request){
          'bio' => $bio,
          'images' => $images,
    ]);
+      }
 
-    $validated = $request->validate([
-       'username' => 'required|min:2|max:12',
-       'mail' => 'required|email|min:5|max:40|unique:users,mail',
-       'password' => 'required|alpha_num|min:8|max:20|confirmed',
-       'bio' => 'string|max:150',
-       'image'=>'File|mimes:jpg,png,bmp,gif,svg',
-      ]);
-
-    //}
  return redirect('/top'); //view()はWebページのアクセス時などのGET処理時 redirect()はフォーム送信などのPOST
 }
 

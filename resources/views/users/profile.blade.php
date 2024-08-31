@@ -7,7 +7,7 @@
         @csrf
         {{ Form::hidden('id', $auth->id) }}
         <!-- イメージ画像はif文で初期画像と更新後の画像を切り替えられるようにする -->
-         <!-- <p><img src="{{ asset('storage/images/' . $auth->images) }}" ></p> -->
+          <p><img src="{{ asset('storage/images/' . $auth->images) }}" ></p>
         <!-- app/public/imagesはログインしているユーザーが変えられない管理者のみが変更可　　storage/images/はログインしているユーザーが変えられるなのでicon1のみ画像保存 -->
         <label>username<input type="text" name="username" placeholder="" value="{{ $auth->username }}"></label>
         <label>mail adress<input type="mail" name="mail" placeholder="" value="{{ $auth->mail }}"></label>

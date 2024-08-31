@@ -1,11 +1,55 @@
 @charset "utf-8";
 html{
+
 }
+/*post*/
+#post {
+    float: left;
+    border-radius: 3px;
+    font-size: 18px;
+   
+
+}
+textarea{
+    border: 1px solid #b1b1b1;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+    font-size: 20px;
+    font-weight: normal;
+  }
+
 body{
 }
 /* header */
 header{
     background:#186AC9;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    justify-content:space-between;
+    width:100%;
+
+
+}
+p.username{
+    justify-content: flex-end;
+}
+p.icon{
+    justify-content: flex-end;
+}
+
+
+.g-navi ul li a, .g-navi ul li p {
+    text-align: right;
+    display: block;
+    color: #808080;
+    font-size: 30px;
+    padding: 20px 0;
+    letter-spacing: .25rem;
+    background:#fff;
+    font-weight: normal;
 }
 
 /* main content */
@@ -20,6 +64,49 @@ header{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
+/* 「メニューテキスト」にマウスオンした際のデザイン */
+.g-navi ul li a:hover,
+.g-navi ul li p:hover,
+.g-navi ul li a.scrolled:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.5);
+
+}
+/*アコーディオンメニュー*/
+
+ li.accordion-lists a {
+    display: flex;
+  justify-content: flex-end;
+    color: #fff;
+    font-weight: normal;
+    
+
+}
+  .accordion-lists::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 35px;
+    width: 10px;
+    height: 1px;
+    color: #fff;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+  }
+  .accordion-lists::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 35px;
+    opacity: 1;
+    width: 10px;
+    height: 1px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+
+  }
+
+
 
 /* profile */
 
