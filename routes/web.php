@@ -21,6 +21,7 @@
 //postは実際にmailやpasswordを入力してログインする処理
 
 //ログアウト中のページ
+
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
@@ -35,7 +36,8 @@ Route::post('/added', 'Auth\RegisterController@added');
 Route::group(['middleware' => 'auth'], function() {
 //アクセス制限をかけるmiddleware
 
-Route::get('/top','PostsController@index');
+Route::get('/top','PostsController@index'); //投稿を表示
+Route::post('/posts','PostsController@create'); //投稿内容を入力　送る
 
 Route::get('/profile','UsersController@profile');
 Route::post('/profile','UsersController@profile');

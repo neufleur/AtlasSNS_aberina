@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 //use Illuminate\Database\PDO;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+
 //use宣言がないとclassエラーが起こる
 
 class UsersController extends Controller
@@ -22,19 +24,47 @@ class UsersController extends Controller
 
 public function updateProfile(Request $request){
 
-    $validate = Validator::make($request->all(), [ //バリデーションを実行
-        'username' => 'required|min:2|max:12',
-         'mail' => 'required|email|min:5|max:40|unique:users,mail',
-         'password' => 'required|alpha_num|min:8|max:20|confirmed',
-         'bio' => 'string|max:150',
-        'image'=>'File|mimes:jpg,png,bmp,gif,svg',
-        ]);
+        if($request->isMethod('post')){
+            $rulus = [
+                'username' => 'required|min:2|max:12',
+                'mail' => 'required','email','min:5','max:40',Rule::unique('users')->ignore($request->user_id, 'user_id'),
+                'password' => 'required|alpha_num|min:8|max:20|confirmed|string',
+                'bio' => 'string|max:150|nullable',
+               'images'=>'image|File|mimes:jpg,png,bmp,gif,svg||nullable',
+               //Rule::unique('テーブル名')->ignore(主キー, '主キーのカラム名')
+               //String 文字列が特定の条件を満たしているかどうかを確認する機能
+            ];
+        $message = [
+            'username.required' =>'ユーザー名は入力必須です',
+            'username.min' => 'ユーザー名は2文字以上、12文字以下で入力してください',
+            'username.max' =>'ユーザー名は2文字以上、12文字以下で入力してください',
+            'mail.required' =>'メールアドレスは入力必須です',
+            'mail.email' =>'有効なメールアドレスを入力してください',
+            'mail.unique:users,mail' =>'このメールアドレスは既に使われています',
+            'mail.min' => 'メールアドレスは5文字以上、40文字以下で入力してください',
+            'mail.max' =>'メールアドレスは5文字以上、40文字以下で入力してください',
+            'password.required' => 'パスワードが一致しません',
+            'password.min' => 'パスワードは8文字以上、20文字以下で入力してください',
+            'password.max' =>'パスワードは8文字以上、20文字以下で入力してください',
+            'password.confirmed' =>'確認パスワードが一致していません',
+            'password.alpha_num' =>'パスワードは英数字で入力してください',
+            'images.images'=>'指定されたファイルは画像ではありません',
+            'images.alpha_num'=>'ファイル名は英数字のみです',
+            'images.mimes'=>'指定されたファイルは画像ではありません',
+
+
+
+
+        ];
+        
+        }
+        $validate = Validator::make($request->all(), $rulus, $message, );//バリデーションを実行
 
         if ($validate->fails()) {
-          return redirect('/profile');
+          return redirect('/profile')
           // エラーを返すか、エラーとともにリダイレクトする
-          //-> withInput() // セッション()に入力値すべてを入れる
-         // ->withErrors('$validate'); // セッション(errors)にエラーの情報を入れる
+          -> withInput() // セッション()に入力値すべてを入れる
+          ->withErrors($validate); // セッション(errors)にエラーの情報を入れる　
 
       }else{
         //inputで最終的に保存したい記述
