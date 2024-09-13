@@ -18,7 +18,8 @@ class User extends Authenticatable
         'username',
         'mail',
         'password',
-        'images',
+        'password_confirmation',
+        'images'
     ];
 
     protected $table = 'users';

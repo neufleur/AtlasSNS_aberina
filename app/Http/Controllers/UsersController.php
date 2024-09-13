@@ -56,7 +56,7 @@ public function updateProfile(Request $request){
 
 
         ];
-        
+
         }
         $validate = Validator::make($request->all(), $rulus, $message, );//バリデーションを実行
 
@@ -85,7 +85,7 @@ public function updateProfile(Request $request){
        User::where('id', $id)->update([
          'username' => $username,
          'mail' => $mail,
-         'password' => $password,
+         'password' =>  bcrypt($password), // bcryptでハッシュ化(暗号化)
          'bio' => $bio,
          'images' => $images,
    ]);

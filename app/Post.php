@@ -9,7 +9,7 @@ class Post extends Model
     //
    protected $fillable = [
         'user_id',
-        'newPost'
+        'post'
     ];
     // public function user()
     // {

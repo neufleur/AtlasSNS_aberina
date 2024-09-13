@@ -22,16 +22,36 @@ class PostsController extends Controller
 
    public function create(Request $request){
 
-    $post = $request->input('newPost'); //新規投稿保存
+    if($request->isMethod('post')){
+        $rulus = [
+            'post' => 'required|min:1|max:150',
+        ];
+        $message = [
+            'post.required'=>'投稿内容は入力必須です',
+            'post.min' => '1文字以上で入力してください',
+            'post.max' =>'150文字以下で入力してください',
+        ];
+        $validate = Validator::make($request->all(), $rulus, $message, );//バリデーションを実行
+    }
+    if ($validate->fails()) {
+        return redirect('/top')
+        // エラーを返すか、エラーとともにリダイレクトする
+        -> withInput() // セッション()に入力値すべてを入れる
+        ->withErrors($validate); // セッション(errors)にエラーの情報を入れる　
+
+    }else{
+    $post = $request->input('post'); //新規投稿保存
     $user_id =Auth::user()->id;
 
     Post::create([
         'user_id' => $user_id,
-        'newPost' => $post,
+        'post' => $post,
 
     ]);
 
     return redirect('/top');
    }
+   }
 
 }
+
