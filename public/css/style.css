@@ -12,14 +12,41 @@ html{
 }
 textarea{
     border: 1px solid #b1b1b1;
-    width: 100%;
+    width: 1200px;
     padding: 10px;
     margin-bottom: 20px;
     background: #fff;
     font-size: 20px;
     font-weight: normal;
+
+  }
+  .post-png{
+width: 50px;
   }
 
+  .table {
+    width: 100%;
+  margin-bottom: 22px;
+  border-color: #b1b1b1;
+
+  }
+
+  .table>tbody>tr>td{
+    padding: 15px;
+    line-height: 1.6;
+    vertical-align: top;
+    border-top: 1px solid #ddd
+  }
+  .table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd
+  }
+.edit-png{
+  width: 50px;
+}
+  .trash-h{
+    width: 50px;
+  }
 body{
 }
 /* header */
@@ -109,4 +136,7 @@ p.icon{
 
 
 /* profile */
+
+
+
 
