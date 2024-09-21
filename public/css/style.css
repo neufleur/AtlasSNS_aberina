@@ -2,6 +2,9 @@
 html{
 
 }
+.atlas-png{
+  width: 150px;
+    }
 /*post*/
 #post {
     float: left;
@@ -48,6 +51,36 @@ width: 50px;
     width: 50px;
   }
 body{
+}
+/* updateForm 開いた時　jQuery */
+.content{
+  margin: 0 auto;
+  padding: 40px;
+}
+.modal{
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+/* .modalはデフォルトでdisplay:noneに設定しておく必要があります。
+ボタンが押されたらモーダルを表示する為です。 */
+
+.modal__bg{
+  background: rgba(0,0,0,0.8);
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+}
+.modal__content{
+  background: #fff;
+  left: 50%;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 60%;
 }
 /* header */
 header{

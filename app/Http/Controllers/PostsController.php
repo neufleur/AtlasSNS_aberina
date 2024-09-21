@@ -54,21 +54,22 @@ class PostsController extends Controller
    }
    }
 //編集機能　表示入力
-//public function updateForm($id)
-    //{
-      //  $post = Post::where('id', $id)->first();
-      //  return view('post.update-form', ['post'=>$post]);
-   // }
+public function updateForm($id)
+    {
+        $post = Post::where('id', $id)->first();
+       return view('post.update-form', ['post'=>$post]);
+   }
 //編集機能 結果
-public function update (Request $request){
-    // 1つ目の処理 リクエスト送る　Post::where('id', $id)->updateで投稿を更新
+ public function update (Request $request){
+    //1つ目の処理 リクエスト送るPost::where('id', $id)->updateで投稿を更新
     $id = $request->input('id');
-    $post = $request->input('post');
+   $post = $request->input('post');
+   ddd($post);
 
     Post::where('id', $id)->update([
-        'post' => $post,
+       'post' => $post,
     ]);
-    return redirect('/top');
+   return redirect('/top');
 }
 //削除機能
 public function delete($id){

@@ -3,6 +3,8 @@
 @section('content')
 @csrf
 {{ Form::open(['url' => '/posts']) }}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/script.js"></script>
 
  <!--新規投稿 <form action='/posts' method="post">  @csrfはフォームの外側に入力-->
 <div id="post">
@@ -36,12 +38,25 @@
                 <!-- authorがBook.php（モデル）に定義したメソッドで、nameがテーブルのカラム名を表しています。 -->
                 <td>{{ $post->update }}</td>
                 <td>{{ $post->delete }}</td>
-                <td><a class="btn btn-primary" href="/post/{{$post->id}}/update-form"><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a></td>
+                <!-- モーダルの中身 open -->
+                <td><a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}" href="/post/{{$post->id}}/update-form"><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a></td>
                 <td><a class="btn btn-danger" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')"><img class="trash-h" src="{{ asset('images/trash-h.png') }}" ></a></td>
            <!-- 更新ボタンの作成 クラス名「btn-primary」を追加 HTTPの通信方法をGETにして、URLにパラメータを一緒に送れるように -->
                 <!-- ↓　ここを追加してください こちらもパラメータ付きのGET送信になるので、移動先のURL指定に各リストのID番号を設置しております。 -->
             </tr>
                 @endforeach
+            <!-- モーダルの中身 close-->
+    <div class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+           <form action="/post/{{$post->id}}/update-form" method="get">
+                <textarea name="post" class="modal_post" cols="50" rows="8"></textarea>
+                <input type="hidden" name="post" class="modal_id" value="">
+                {{ csrf_field() }}
+           </form>
+           <a class="js-modal-close" href=""><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a>
+        </div>
+    </div>
 
 
 

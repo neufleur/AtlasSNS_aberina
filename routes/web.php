@@ -40,7 +40,10 @@ Route::get('/top','PostsController@index'); //投稿を表示
 Route::post('/posts','PostsController@create'); //投稿内容を入力　送る
 
 Route::get('/post/{id}/update-form','PostsController@updateForm'); //編集ページ表示
-Route::post('/post/update','PostsController@update'); //編集 反映させるページ
+Route::post('/post/{id}/update-form','PostsController@updateForm'); //
+Route::get('/post/update','PostsController@update'); // 反映させる
+Route::post('/post/update','PostsController@update'); //編集
+
 Route::get('/post/{id}/delete','PostsController@delete'); //削除
 
 Route::get('/profile','UsersController@profile');
