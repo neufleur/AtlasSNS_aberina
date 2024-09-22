@@ -27,10 +27,11 @@
 {{ Form::close() }}
 
 <table class="table table-hover">
-<!-- 一覧表示 -->
+                <!-- 一覧表示 -->
+                <form action=/post/update method="get">
                 @foreach($post as $post)
                 <tr>
-                <td>{{ asset('storage/images/' . Auth::user()->images ) }}</td>
+                <td><img src="{{ asset('storage/images/' . Auth::user()->images) }}"></td>
                 <!-- <td>{{ $post->id }}</td> -->
                 <!-- <td>{{ $post->user_id }}</td> -->
                 <td>{{ $post->post}}</td>
@@ -39,19 +40,20 @@
                 <td>{{ $post->update }}</td>
                 <td>{{ $post->delete }}</td>
                 <!-- モーダルの中身 open -->
-                <td><a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}" href="/post/{{$post->id}}/update-form"><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a></td>
+                <td><a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}" href="/post/{{$post->id}}/update-Form"><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a></td>
                 <td><a class="btn btn-danger" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')"><img class="trash-h" src="{{ asset('images/trash-h.png') }}" ></a></td>
            <!-- 更新ボタンの作成 クラス名「btn-primary」を追加 HTTPの通信方法をGETにして、URLにパラメータを一緒に送れるように -->
                 <!-- ↓　ここを追加してください こちらもパラメータ付きのGET送信になるので、移動先のURL指定に各リストのID番号を設置しております。 -->
             </tr>
                 @endforeach
+                </form>
             <!-- モーダルの中身 close-->
     <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
-           <form action="/post/{{$post->id}}/update-form" method="get">
+           <form action=/post/update method="post">
                 <textarea name="post" class="modal_post" cols="50" rows="8"></textarea>
-                <input type="hidden" name="post" class="modal_id" value="">
+                <input type="hidden" name="id" class="modal_id" value="">
                 {{ csrf_field() }}
            </form>
            <a class="js-modal-close" href=""><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a>

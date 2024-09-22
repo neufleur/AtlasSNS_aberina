@@ -54,17 +54,16 @@ class PostsController extends Controller
    }
    }
 //編集機能　表示入力
-public function updateForm($id)
-    {
-        $post = Post::where('id', $id)->first();
-       return view('post.update-form', ['post'=>$post]);
+public function updateForm($id){
+        $post = Post::where('id', $id)->first(); //該当レコードの最初のレコードのみを取得するもの なぜか　画面が表示されないのはコントローラーが間違ってる可能性あり
+       return view('post.update-Form', ['post'=>$post]);
    }
 //編集機能 結果
  public function update (Request $request){
     //1つ目の処理 リクエスト送るPost::where('id', $id)->updateで投稿を更新
     $id = $request->input('id');
    $post = $request->input('post');
-   ddd($post);
+   //ddd($post);
 
     Post::where('id', $id)->update([
        'post' => $post,

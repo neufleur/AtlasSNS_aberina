@@ -10,7 +10,7 @@ html{
     float: left;
     border-radius: 3px;
     font-size: 18px;
-   
+
 
 }
 textarea{
@@ -49,6 +49,9 @@ width: 50px;
 }
   .trash-h{
     width: 50px;
+  }
+  .image-container:hover {
+    background-image: url('public/images/trash.png');
   }
 body{
 }
