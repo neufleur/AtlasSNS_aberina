@@ -34,7 +34,7 @@ public function updateProfile(Request $request){
                //Rule::unique('テーブル名')->ignore(主キー, '主キーのカラム名')
                //String 文字列が特定の条件を満たしているかどうかを確認する機能
             ];
-        $message = [
+            $message = [
             'username.required' =>'ユーザー名は入力必須です',
             'username.min' => 'ユーザー名は2文字以上、12文字以下で入力してください',
             'username.max' =>'ユーザー名は2文字以上、12文字以下で入力してください',
@@ -52,12 +52,9 @@ public function updateProfile(Request $request){
             'images.alpha_num'=>'ファイル名は英数字のみです',
             'images.mimes'=>'指定されたファイルは画像ではありません',
 
-
-
-
         ];
 
-        }
+         }
         $validate = Validator::make($request->all(), $rulus, $message, );//バリデーションを実行
 
         if ($validate->fails()) {

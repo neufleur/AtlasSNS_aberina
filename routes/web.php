@@ -43,7 +43,7 @@ Route::get('/post/{id}/update-Form','PostsController@updateForm'); // 編集ペ�
 Route::post('/post/{id}/update-Form','PostsController@updateForm'); //
 
 Route::get('/post/update','PostsController@update'); // 反映させる
-Route::post('/post/update','PostsController@update'); //編集　登録
+//Route::post('/post/update','PostsController@update'); //編集　登録
 
 Route::get('/post/{id}/delete','PostsController@delete'); //削除
 

@@ -47,7 +47,7 @@ class PostsController extends Controller
 
     Post::create([
         'user_id' => $user_id,
-        'post' => $post,
+        'post' => $post
 
     ]);
     return redirect('/top');
@@ -60,15 +60,35 @@ public function updateForm($id){
    }
 //編集機能 結果
  public function update (Request $request){
-    //1つ目の処理 リクエスト送るPost::where('id', $id)->updateで投稿を更新
-    $id = $request->input('id');
-   $post = $request->input('post');
-   //ddd($post);
 
-    Post::where('id', $id)->update([
-       'post' => $post,
-    ]);
-   return redirect('/top');
+    if(! isset($post)){
+        $rulus = [
+            'post' => 'required|min:1|max:150',
+        ];
+        $message = [
+            'post.required'=>'投稿内容は入力必須です',
+            'post.min' => '1文字以上で入力してください',
+            'post.max' =>'150文字以下で入力してください',
+        ];
+    }
+    $validate = Validator::make($request->all(), $rulus, $message, );//バリデーションを実行
+
+    if ($validate->fails()) {
+        return redirect('/top')
+        // エラーを返すか、エラーとともにリダイレクトする
+        -> withInput() // セッション()に入力値すべてを入れる
+        ->withErrors($validate); // セッション(errors)にエラーの情報を入れる　
+
+    }else{
+         //1つ目の処理 リクエスト送るPost::where('id', $id)->updateで投稿を更新
+    $id = $request->input('id');
+    $post = $request->input('post');
+
+     Post::where('id', $id)->update([
+        'post' => $post,
+     ]);
+    }
+    return redirect('/top');
 }
 //削除機能
 public function delete($id){

@@ -27,20 +27,20 @@ textarea{
 width: 50px;
   }
 
-  .table {
+  .post-table {
     width: 100%;
   margin-bottom: 22px;
   border-color: #b1b1b1;
 
   }
 
-  .table>tbody>tr>td{
+  .post-table>tbody>tr>td{
     padding: 15px;
     line-height: 1.6;
     vertical-align: top;
     border-top: 1px solid #ddd
   }
-  .table>thead>tr>th {
+  .post-table>thead>tr>th {
     vertical-align: bottom;
     border-bottom: 2px solid #ddd
   }
@@ -103,6 +103,21 @@ p.icon{
     justify-content: flex-end;
 }
 
+.search-table{
+  margin-bottom: 22px;
+  border-color: #b1b1b1;
+  text-align: center;
+}
+.search-table>tbody>tr>td{
+  padding: 15px;
+  line-height: 1.0;
+  vertical-align: top;
+  border-top: 1px solid #ddd
+}
+.search-table>thead>tr>th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd
+}
 
 .g-navi ul li a, .g-navi ul li p {
     text-align: right;

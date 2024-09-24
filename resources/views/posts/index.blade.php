@@ -17,7 +17,7 @@
       </ul>
     </div>
 @endif
-  <!-- バリデーションチェックに引っかかった場合、ビューファイルにエラーメッセージを表示させる必要がある 
+  <!-- バリデーションチェックに引っかかった場合、ビューファイルにエラーメッセージを表示させる必要がある @if($errors->any())から@endifまで
 具体的には、エラーメッセージが1つ以上存在するかどうかを確認し、エラーメッセージが存在する場合は、全てのエラーメッセージをforeachを使って表示させています。-->
 
 <p class="icon"><img src="{{ asset('storage/images/' . Auth::user()->images) }}"></p>
@@ -26,7 +26,7 @@
 
 {{ Form::close() }}
 
-<table class="table table-hover">
+<table class="post-table table-hover">
                 <!-- 一覧表示 -->
                 <form action=/post/update method="get">
                 @foreach($post as $post)
@@ -47,16 +47,27 @@
             </tr>
                 @endforeach
                 </form>
-            <!-- モーダルの中身 close-->
+            <!-- モーダルの中身 close aタグはリンクに飛ぶタグを指定　-->
     <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
-           <form action=/post/update method="post">
+        @csrf
+           <form action=/post/update method="get">
+            @if($errors->any())
+         <div class="alert alert-danger">
+           <ul>
+               @foreach($errors->all() as $error)
+             <li>{{ $error }}</li>
+               @endforeach
+            </ul>
+        </div>
+              @endif
                 <textarea name="post" class="modal_post" cols="50" rows="8"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="">
+                <button class=""><img class="edit-png" src="{{ asset('images/edit.png') }}" ></button>
+                 <!--編集したものを送信されて保存するため使う　formタグの中に入れて反映させる　-->
                 {{ csrf_field() }}
            </form>
-           <a class="js-modal-close" href=""><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a>
         </div>
     </div>
 
