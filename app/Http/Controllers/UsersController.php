@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-
+use App\User\isFollowing;
 //use宣言がないとclassエラーが起こる
 
 class UsersController extends Controller
@@ -105,10 +105,37 @@ public function updateProfile(Request $request){
         return view('users.search', compact('users','keyword'));
     }
 
-}
-
-// $users = Auth::user();今ログインしている人のユーザーを取得　
+    // $users = Auth::user();今ログインしている人のユーザーを取得　
 // $request入力された値を$keywordに格納→$keywordで何かしらの値を受け取った場合は、if文の中で取得するデータを絞りこむ
 // =>添字にあたる'users'部分（キー）を文字列で指定
 //compact関数とはコントローラで受け取った値をビューへ受け渡す
-//
+
+//フォロー
+        public function follow(){
+
+         return $this->belongsToMany(User::class,'follows', 'following_id', 'followed_id');
+         //return $this->belongsToMany('⓵followersの場所', '⓶中間テーブル', '⓷自分のidが入る' ④相手モデルに関係しているid);
+         }
+//フォロー解除
+        public function nofollow(){
+
+         return $this->belongsToMany(User::class,'follows', 'following_id', 'followed_id');
+         //return $this->belongsToMany('⓵followersの場所', '⓶中間テーブル', '⓷自分のidが入る' ④相手モデルに関係しているid);
+    }
+
+//ログインユーザーがフォローしているか (boolean)の意味調べる
+        public function isFollowing(){
+            return (boolean) $this->follows()->where('following_id', $user_id)->first();
+
+}
+
+//ログインユーザーがフォローされている
+       public function isFollowed(){
+        return (boolean) $this->follows()->where('followed_id', $$user_id)->first();
+
+       }
+
+
+
+}
+

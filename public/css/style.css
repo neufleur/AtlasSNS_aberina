@@ -119,6 +119,43 @@ p.icon{
   border-bottom: 2px solid #ddd
 }
 
+
+
+
+.ff-button{
+  position: absolute;
+  border-radius: 10px 10px 10px 10px;
+  width: 150px;
+  padding: 10px 0px 10px 0px;
+ text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+  color: #fff;
+  transition: all 0.3s;
+}
+.ff-button:before {
+	content: 'フォローする';
+}
+.checkbox {
+	display: none;
+}
+
+.checkbox:checked+.ff-button{
+  position: absolute;
+  border-radius: 10px 10px 10px 10px;
+  width: 150px;
+  padding: 10px 0px 10px 0px;
+  display: inline-block;
+  font-size: 18px;
+  font-family: sans-serif;
+  color: #fff;
+  transition: all 0.3s;
+
+}
+.checkbox:checked+.ff-button:before{
+  content: 'フォロー解除';
+}
+
 .g-navi ul li a, .g-navi ul li p {
     text-align: right;
     display: block;

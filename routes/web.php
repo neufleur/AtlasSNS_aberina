@@ -55,6 +55,14 @@ Route::get('/search','UsersController@search');
 Route::post('/search','UsersController@search');
 //検索用のRoute作る
 
+//フォロー解除
+Route::get('/users/{id}/nofollow','UsersController@follow');
+Route::post('/users/{id}/nofollow','UsersController@follow');
+
+//フォロー
+Route::get('/users/{id}/follow','UsersController@followers');
+Route::post('/users/{id}/follow','UsersController@followers');
+
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 

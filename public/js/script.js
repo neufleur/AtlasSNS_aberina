@@ -1,3 +1,5 @@
+//編集機能
+
 $(function(){
     // 編集ボタン(class="js-modal-open")が押されたら発火
     $('.js-modal-open').on('click',function(){
@@ -22,3 +24,10 @@ $(function(){
         return false;
     });
 });
+
+
+
+
+//フォローする解除切り替え
+
+
