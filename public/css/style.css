@@ -93,9 +93,39 @@ header{
     font-weight: bold;
     justify-content:space-between;
     width:100%;
-
-
+    display: flex;
 }
+/*アコーディオンメニュー*/
+.nav-menu{
+  /* display: none; */
+  padding: 10px 20px;
+  }
+.nav-btn{
+    position: relative;
+
+  }
+
+.nav-btn:after  {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 38%;
+      right: 25px;
+      height: 8px;
+      width: 8px;
+      transform:rotate(135deg);
+      transition: transform .3s ease-in-out, .3s ease-in-out;
+
+    }
+
+  .nav-btn.open::after
+  {
+    top: 45%;
+    transform: rotate(-45deg);
+  }
+
+
+
 p.username{
     justify-content: flex-end;
 }
@@ -179,52 +209,53 @@ p.icon{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
-/* 「メニューテキスト」にマウスオンした際のデザイン */
-.g-navi ul li a:hover,
-.g-navi ul li p:hover,
-.g-navi ul li a.scrolled:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.5);
-
-}
-/*アコーディオンメニュー*/
-
- li.accordion-lists a {
-    display: flex;
-  justify-content: flex-end;
-    color: #fff;
-    font-weight: normal;
-    
-
-}
-  .accordion-lists::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 35px;
-    width: 10px;
-    height: 1px;
-    color: #fff;
-    border-top: 2px solid #fff;
-    border-right: 2px solid #fff;
-  }
-  .accordion-lists::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 35px;
-    opacity: 1;
-    width: 10px;
-    height: 1px;
-    border-top: 2px solid #fff;
-    border-right: 2px solid #fff;
-
-  }
 
 
 
 /* profile */
 
 
+.profile-update{
+  margin: 100px;
+  
 
+}
+.profile-add{
+  padding: 20px;
+  font-size: 30px;
+  display: flex;
+  justify-content:space-between;
+  font-size: 25px;
+}
+.ct-block {
+  margin-bottom: 32px;
+}
 
+.form-name,
+.form-mail,
+.form-password,
+.form-bio,
+.form-images{
+  width:50%;
+  height: 45px;
+  padding: 0 10px;
+  background: #ddd;
+  border-color: #727272;
+  border-width: 1px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+
+}
+.up-btn{
+  position: absolute;
+  border-radius: 10px 10px 10px 10px;
+  width: 200px;
+  padding: 10px 10px 10px 10px;
+  display: inline-block;
+  font-size: 18px;
+  font-family: sans-serif;
+  color: #fff;
+  background-color: #FF3333;
+  border-color: #FF3333;
+}

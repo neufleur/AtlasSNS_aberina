@@ -56,12 +56,12 @@ Route::post('/search','UsersController@search');
 //検索用のRoute作る
 
 //フォロー解除
-Route::get('/users/{id}/nofollow','UsersController@follow');
-Route::post('/users/{id}/nofollow','UsersController@follow');
+Route::get('/users/{id}/nofollow','FollowsController@nofollow');
+Route::post('/users/{id}/nofollow','FollowsController@nofollow');
 
 //フォロー
-Route::get('/users/{id}/follow','UsersController@followers');
-Route::post('/users/{id}/follow','UsersController@followers');
+Route::get('/users/{id}/follow','FollowsController@follow');
+Route::post('/users/{id}/follow','FollowsController@follow');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');

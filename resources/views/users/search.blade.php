@@ -27,7 +27,7 @@
             <td>{{ $users->username }}</td>
 
          <!-- フォローするフォロー解除ボタン機能-->
-        @if(auth()->user()->isFollowing($users->id))
+        @if(auth()->user()->isFollowing($user->id))
 
         <!--ログインしているユーザー　フォローするデータ送る  -->
         <form action='/users/{{$user->id}}/nofollow' method="post">  <!-- フォロー解除-->

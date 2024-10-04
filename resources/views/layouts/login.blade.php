@@ -20,6 +20,8 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
     <header>
@@ -31,10 +33,11 @@
                  <p class="icon"><img src="{{ asset('storage/images/' . Auth::user()->images) }}"></p>
                  </div>
                 <div class="nav-menu">
-                <ul>
-                    <li class="accordion-lists"><a href="/top">HOME</a></li>
-                    <li class="accordion-lists"><a href="/profile">プロフィール編集</a></li>
-                    <li class="accordion-lists"><a href="/logout">ログアウト</a></p></li>
+                    <p class="nav-btn"></p>
+                    <ul>
+                    <li><a href="/top">HOME</a></li>
+                    <li ><a href="/profile">プロフィール編集</a></li>
+                    <li><a href="/logout">ログアウト</a></p></li>
                 </ul>
                 </div>
             </div>

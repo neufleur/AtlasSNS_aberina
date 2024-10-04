@@ -1,3 +1,12 @@
+//アコーディオンメニュー
+jQuery(function($) {
+    $('.nav-btn').onclick(function() {
+        $(this).next().slideToggle(300);
+        $(this).toggleClass('open',300);
+    });
+  });
+
+
 //編集機能
 
 $(function(){
