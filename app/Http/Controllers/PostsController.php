@@ -98,5 +98,6 @@ public function delete($id){
 
     return redirect('/top');
 }
+
 }
 

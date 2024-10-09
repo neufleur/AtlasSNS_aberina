@@ -3,9 +3,6 @@
 @section('content')
 @csrf
 {{ Form::open(['url' => '/posts']) }}
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="js/script.js"></script>
-
  <!--新規投稿 <form action='/posts' method="post">  @csrfはフォームの外側に入力-->
 <div id="post">
 @if($errors->any())

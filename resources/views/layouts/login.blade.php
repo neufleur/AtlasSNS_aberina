@@ -25,7 +25,7 @@
 </head>
 <body>
     <header>
-        <div id = "head">
+        <div>
         <h1><a href="/top"><img class="atlas-png" src="{{ asset('images/atlas.png') }}"></a></h1>
             <div id="">
                 <div class="menu">
@@ -52,7 +52,7 @@
                 <p>{{ session('username') }}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>〇〇名</p>
+                <p>名</p>
                 </div>
                 <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>

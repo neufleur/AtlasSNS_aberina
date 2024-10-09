@@ -10,8 +10,8 @@
          @if(!empty($keyword))
         <div class="alert alert-primary">{{$keyword}}</div>
         <!--name="keyword"で入力されたものを入れる -->
-        <button id="sbtn" type="submit"><img src="{{ asset('images/search.png') }}" ></button>
         @endif
+        <button id="sbtn" type="submit"><img class="search-png" src="{{ asset('images/search.png') }}" ></button>
     </form>
 </div>
 <!-- 保存されているユーザー一覧 -->
@@ -26,19 +26,19 @@
         <td><img src="{{ asset('storage/images/' . $users->images) }}"></td>
             <td>{{ $users->username }}</td>
 
-         <!-- フォローするフォロー解除ボタン機能-->
-        @if(auth()->user()->isFollowing($user->id))
+         <!-- フォローするフォロー解除ボタン機能 user.phpからの取得-->
+        @if(auth()->user()->isFollowing($users->id))
 
         <!--ログインしているユーザー　フォローするデータ送る  -->
-        <form action='/users/{{$user->id}}/nofollow' method="post">  <!-- フォロー解除-->
-          <td><button type="submit" id="ff" class="btn btn-danger"><label class="ff-button" for="ff">フォロー解除</label></button></td>
+        <form action="{{ route('unfollow', ['id' => $users->id]) }}" method="post">  <!-- フォロー解除-->
+          <td><button type="submit" id="ff" class="btn btn-danger">フォロー解除</button></td>
         </form>
         @else
-        <form action='/users/{{$user->id}}/follow' method="post"><!-- フォローする-->
+        <form action="{{ route('follow', ['id' => $users->id]) }}"  method="post"><!-- フォローする-->
         @csrf
-        <td><button type="submit" id="ff" class="btn btn-primary"><label class="ff-button" for="ff">フォローする</label></button></td>
+        <td><button type="submit" id="ff" class="btn btn-primary">フォローする</button></td>
         </form>
-        
+
           @endif
         </tr>
         @endif

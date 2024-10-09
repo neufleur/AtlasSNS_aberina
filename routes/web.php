@@ -43,7 +43,6 @@ Route::get('/post/{id}/update-Form','PostsController@updateForm'); // 編集ペ�
 Route::post('/post/{id}/update-Form','PostsController@updateForm'); //
 
 Route::get('/post/update','PostsController@update'); // 反映させる
-//Route::post('/post/update','PostsController@update'); //編集　登録
 
 Route::get('/post/{id}/delete','PostsController@delete'); //削除
 
@@ -56,12 +55,12 @@ Route::post('/search','UsersController@search');
 //検索用のRoute作る
 
 //フォロー解除
-Route::get('/users/{id}/nofollow','FollowsController@nofollow');
-Route::post('/users/{id}/nofollow','FollowsController@nofollow');
+Route::get('/users/{id}/unFollow','FollowsController@unfollow')->name('unfollow');
+Route::post('/users/{id}/unFollow','FollowsController@unfollow')->name('unfollow');
 
 //フォロー
-Route::get('/users/{id}/follow','FollowsController@follow');
-Route::post('/users/{id}/follow','FollowsController@follow');
+Route::get('/users/{id}/Follow','FollowsController@follow')->name('follow');
+Route::post('/users/{id}/Follow','FollowsController@follow')->name('follow');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');

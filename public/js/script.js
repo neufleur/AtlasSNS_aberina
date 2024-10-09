@@ -1,6 +1,6 @@
 //アコーディオンメニュー
-jQuery(function($) {
-    $('.nav-btn').onclick(function() {
+$(function() {
+    $('.nav-btn').on('click',function() {
         $(this).next().slideToggle(300);
         $(this).toggleClass('open',300);
     });

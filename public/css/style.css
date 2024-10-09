@@ -95,35 +95,53 @@ header{
     width:100%;
     display: flex;
 }
+
 /*アコーディオンメニュー*/
 .nav-menu{
-  /* display: none; */
   padding: 10px 20px;
+
   }
+
 .nav-btn{
     position: relative;
+    cursor: pointer;
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    margin: 0 10px;
+    top:40%;
+    border-bottom: 4px solid #fff;
+    border-right: 4px solid #fff;
+    transform:rotate(45deg);
+
 
   }
 
-.nav-btn:after  {
-      content: "";
-      position: absolute;
-      display: block;
-      top: 38%;
-      right: 25px;
-      height: 8px;
-      width: 8px;
-      transform:rotate(135deg);
-      transition: transform .3s ease-in-out, .3s ease-in-out;
+.nav-btn.open  {
+  position: relative;
+    cursor: pointer;
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    margin: 0 10px;
+    top:40%;
+    border-bottom: 4px solid #fff;
+    border-right: 4px solid #fff;
+  transform:rotate(-135deg);
 
     }
 
-  .nav-btn.open::after
-  {
-    top: 45%;
-    transform: rotate(-45deg);
-  }
 
+.nav-menu ul{
+  display: none;
+}
+
+.nav-menu ul li{
+ padding: 20px;
+ font-size: 30px;
+ font-weight: normal;
+ font-family: sans-serif;
+}
 
 
 p.username{
@@ -149,7 +167,9 @@ p.icon{
   border-bottom: 2px solid #ddd
 }
 
-
+.search-png{
+  width: 50px;
+    }
 
 
 .ff-button{
@@ -217,8 +237,11 @@ p.icon{
 
 .profile-update{
   margin: 100px;
-  
-
+  display: flex;
+}
+.profile-update img{
+  height: 100px;
+  width: 100px;
 }
 .profile-add{
   padding: 20px;
@@ -234,8 +257,7 @@ p.icon{
 .form-name,
 .form-mail,
 .form-password,
-.form-bio,
-.form-images{
+.form-bio{
   width:50%;
   height: 45px;
   padding: 0 10px;
@@ -245,6 +267,19 @@ p.icon{
   font-size: 20px;
   display: flex;
   justify-content: space-around;
+
+}
+.f-images{
+  width:50%;
+  height: 80px;
+  padding: 0 10px;
+  background: #ddd;
+  border-color: #727272;
+  border-width: 1px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
 
 }
 .up-btn{
@@ -258,4 +293,5 @@ p.icon{
   color: #fff;
   background-color: #FF3333;
   border-color: #FF3333;
+  margin-left: 300px;
 }
