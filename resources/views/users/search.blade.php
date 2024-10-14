@@ -18,23 +18,26 @@
 <div class="container-list">
 
     <table class="search-table table-hover">
-        @foreach ($users as $users)
-        <!-- foreach 順番に取り出す($配列　as $値を入れる変数) -->
+        @foreach ($users as $user)
+        <!-- foreach 順番に取り出す($配列　as $値を入れる変数(単数)) -->
         <!-- 今自分がログインしているユーザー　==　他の人がログインしているユーザー 2つの値が異なるかどうかを確認　-->
-        @if (!(Auth::user()->username == $users->username))
+        @if (!(Auth::user()->username == $user->username))
         <tr>
-        <td><img src="{{ asset('storage/images/' . $users->images) }}"></td>
-            <td>{{ $users->username }}</td>
+        <td><img src="{{ asset('storage/images/' . $user->images) }}"></td>
+            <td>{{ $user->username }}</td>
 
          <!-- フォローするフォロー解除ボタン機能 user.phpからの取得-->
-        @if(auth()->user()->isFollowing($users->id))
+        @if(auth()->user()->isFollowing($user->id))
 
         <!--ログインしているユーザー　フォローするデータ送る  -->
-        <form action="{{ route('unFollow', ['user' => $users->id]) }}" method="post">  <!-- フォロー解除-->
+        <!-- ['user' => $user->id]) 'user'はコントローラーのpublic function Follow(User $user) 同じ関数-->
+        <form action="{{ route('unFollow', ['user' => $user->id]) }}" method="post">
+        @csrf
+          <!-- フォロー解除-->
           <td><button type="submit" id="ff" class="btn btn-danger">フォロー解除</button></td>
         </form>
         @else
-        <form action="{{ route('Follow', ['user' => $users->id]) }}"  method="post">  <!-- フォローする-->
+        <form action="{{ route('Follow', ['user' => $user->id]) }}"  method="post">  <!-- フォローする-->
         @csrf
         <td><button type="submit" id="ff" class="btn btn-primary">フォローする</button></td>
         </form>

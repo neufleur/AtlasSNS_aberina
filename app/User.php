@@ -35,6 +35,7 @@ class User extends Authenticatable
     ];
 
     //リレーションはモデル(~~.php)に記入する　コントローラーは画面にreturnで表示させる部分　
+
     //フォロー　中間テーブルと繋げる　
     public function follows(){
 
@@ -49,16 +50,27 @@ class User extends Authenticatable
    }
 
 //ログインユーザーがフォローしている　処理の結果を保存して条件判定に使う時に、Boolean型使う　boolean型とは、trueまたfalseのどちらかのデータが必ず入ることが決まっているデータ型
-       public function isFollowing($users_id){
-       return (boolean) $this->follows()->where('followed_id', $users_id)->first();
+       public function isFollowing($user_id){
+       return (boolean) $this->follows()->where('followed_id', $user_id)->first();
 
 }
 
 //ログインユーザーがフォローされている
-      public function isFollowed($users_id){
-      return (boolean) $this->follows()->where('following_id', $users_id)->first();
+      public function isFollowed($user_id){
+      return (boolean) $this->follows()->where('following_id', $user_id)->first();
 
       }
+      //Followの定義　attach繋げる
+      public function Follow($user_id){
+        return $this->follows()->attach($user_id);
+
+    }
+    //unFollowの定義 detach解除
+    public function unFollow($user_id){
+        return $this->follows()->detach($user_id);
+
+    }
+
 
 
 }

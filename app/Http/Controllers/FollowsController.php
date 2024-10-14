@@ -16,35 +16,47 @@ class FollowsController extends Controller
 {
     //
     public function followList(){
-        return view('follows.followList');
-    }
+            // フォローしているユーザーのidを取得
+              $following_id = Auth::user()->follows()->pluck('followed_id');
+
+            // フォローしているユーザーのidを元に投稿内容を取得
+              $followings = Post::with('user')->whereIn('id', $following_id)->get();
+              return redirect('/followsList' ,compact('followings'));
+            }
+
+
     public function followerList(){
         return view('follows.followerList');
     }
-    //public function 関数(引数)引数　とは関数に渡して処理の中でその値を使うことができるもの
 
+
+
+
+
+    //public function 関数(引数)引数　とは関数に渡して処理の中でその値を使うことができるもの (User $user)一致させないとだめ
       //フォロー機能
-      public function Follow(User $users){
-        dd($users);
-
+      public function Follow(User $user){
+        //dd($user);
         $follower = Auth::user();
-        $is_Following =$follower->isFollowing($users->id);  //フォローを紐づいているusersテーブルのレコード情報　$followerに格納されているユーザがフォローしている人たちを取得できる
+        $is_Following =$follower->isFollowing($user->id);  //フォローを紐づいているusersテーブルのレコード情報　$followerに格納されているユーザがフォローしている人たちを取得できる
 
-        if($is_Following){//フォローしてなければフォロー
-        $follower->Follow($users->id);
+        if(!$is_Following){
+            //フォローしてなければフォロー !マークでフォローしていなければの表示
+            //dd($is_Following);
+        $follower->Follow($user->id);
         }
         return back();
    }
       //フォロー解除
-      public function unFollow(User $users){
+      public function unFollow(User $user){
         $follower = Auth::user();
-        $is_Following =$follower->isFollowing($users->id);
+        $is_Following =$follower->isFollowing($user->id);
 
         if($is_Following){
             //フォローしてれば解除
-        $follower->unFollow($users->id);
-        return back();
+        $follower->unFollow($user->id);
         }
+        return back();
     }
 }
 
