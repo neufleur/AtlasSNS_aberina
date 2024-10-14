@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -48,15 +49,16 @@ class User extends Authenticatable
    }
 
 //ログインユーザーがフォローしている　処理の結果を保存して条件判定に使う時に、Boolean型使う　boolean型とは、trueまたfalseのどちらかのデータが必ず入ることが決まっているデータ型
-       public function isFollowing($user_id){
-       return (boolean) $this->follows()->where('followed_id', $user_id)->first();
+       public function isFollowing($users_id){
+       return (boolean) $this->follows()->where('followed_id', $users_id)->first();
 
 }
 
 //ログインユーザーがフォローされている
-      public function isFollowed($user_id){
-      return (boolean) $this->follows()->where('following_id', $user_id)->first();
+      public function isFollowed($users_id){
+      return (boolean) $this->follows()->where('following_id', $users_id)->first();
 
       }
+
 
 }

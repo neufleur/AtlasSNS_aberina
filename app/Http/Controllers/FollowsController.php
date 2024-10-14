@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 //use宣言：中で使うクラスを宣言する
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Post;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Http\Request;
+use App\Http\Controllers\Follow;
 
 
 
@@ -23,11 +25,13 @@ class FollowsController extends Controller
 
       //フォロー機能
       public function Follow(User $users){
+        dd($users);
+
         $follower = Auth::user();
         $is_Following =$follower->isFollowing($users->id);  //フォローを紐づいているusersテーブルのレコード情報　$followerに格納されているユーザがフォローしている人たちを取得できる
 
-        if(!$is_Following) {//フォローしてなければフォロー
-        $follower->follow($users->id);
+        if($is_Following){//フォローしてなければフォロー
+        $follower->Follow($users->id);
         }
         return back();
    }
@@ -38,7 +42,7 @@ class FollowsController extends Controller
 
         if($is_Following){
             //フォローしてれば解除
-        $follower->unfollow($users_id);
+        $follower->unFollow($users->id);
         return back();
         }
     }

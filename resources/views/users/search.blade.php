@@ -30,11 +30,11 @@
         @if(auth()->user()->isFollowing($users->id))
 
         <!--ログインしているユーザー　フォローするデータ送る  -->
-        <form action="{{ route('unfollow', ['id' => $users->id]) }}" method="post">  <!-- フォロー解除-->
+        <form action="{{ route('unFollow', ['user' => $users->id]) }}" method="post">  <!-- フォロー解除-->
           <td><button type="submit" id="ff" class="btn btn-danger">フォロー解除</button></td>
         </form>
         @else
-        <form action="{{ route('follow', ['id' => $users->id]) }}"  method="post"><!-- フォローする-->
+        <form action="{{ route('Follow', ['user' => $users->id]) }}"  method="post">  <!-- フォローする-->
         @csrf
         <td><button type="submit" id="ff" class="btn btn-primary">フォローする</button></td>
         </form>
