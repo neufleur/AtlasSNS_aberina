@@ -7,11 +7,12 @@
                 <form action='/follow-list' method="get">
                 @csrf
                 <div class="follow-images">
+                <h2>Follow list</h2>
                       <!-- foreach 順番に取り出す($配列　as $値を入れる変数(単数)) -->
         <!-- フォローしてる画像のid(ユーザー)　==　ログインしているユーザーの画像　2つの値が異なるかどうかを確認　-->
                 @foreach ($images as $images)
                 @if($images->id !== Auth::user()->$images)
-                <a><img src="{{ asset('storage/images/' . $images->images) }}"></a>
+                <a href="{{ url('profile_users',$images->id)}}"><img src="{{ asset('storage/images/' . $images->images) }}"></a>
                 @endif
                @endforeach
                 </div>
