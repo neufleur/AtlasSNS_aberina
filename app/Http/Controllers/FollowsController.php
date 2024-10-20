@@ -24,7 +24,7 @@ class FollowsController extends Controller
         $users = User::whereIn('id', $following_id)->get();
         //dd($post);
         $images = Auth::user()->follows()->get();
-    
+     //dd($images);
           return view('follows.followList',compact('post','images'));
         }
 
@@ -34,11 +34,12 @@ public function followerList(Post $post, User $user, Follow $follow){
     $followed_id = Auth::user()->followers()->pluck('following_id');
     // フォローされてるユーザーのidを元に投稿内容を取得
     $post = Post::whereIn('user_id', $followed_id)->orderBy('created_at', 'desc')->get();
+    //dd($post);
       // フォローされてるユーザーの情報を取得
     $users = User::whereIn('id', $followed_id)->get();
     //dd($users);
     $images = Auth::user()->followers()->get();
-    
+
       return view('follows.followerList',compact('post','images'));
 
 }

@@ -11,18 +11,17 @@
         <!-- フォローしてる画像のid(ユーザー)　==　ログインしているユーザーの画像　2つの値が異なるかどうかを確認　-->
                 @foreach ($images as $images)
                 @if($images->id !== Auth::user()->$images)
-                 <img src="{{ asset('storage/images/' . $images->images) }}">
+                <a><img src="{{ asset('storage/images/' . $images->images) }}"></a>
                 @endif
                @endforeach
                 </div>
 
                 <div class="follow-post">
                 @foreach ($post as $post)
-                </div class="follow-post">
-                <img src="{{ asset('storage/images/' . $post->user->images) }}">
-                <br>{{$post->user->username}}</br>
-                <br>{{$post->user->created_at}}</br>
-                <br>{{$post->$post}}</br>
+                <a><img src="{{ asset('storage/images/' . $post->images) }}"></a>
+                <br>{{$post->username}}</br>
+                <br>{{$post->created_at}}</br>
+                <br>{{$post->post}}</br>
                  @endforeach
                </div>
 

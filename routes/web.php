@@ -69,3 +69,5 @@ Route::post('/follower-list','FollowsController@followerList');
 
 //authというミドルウェアは、ユーザがログインしているかどうかを確認できるミドルウェアです。
 //送られてきたデータが、指定された条件を満たしているかをチェックしてルーティングを制限するものです。
+
+
