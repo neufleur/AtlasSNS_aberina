@@ -19,7 +19,7 @@
 
                 <div class="follow-post">
                 @foreach ($post as $post)
-                <a><img src="{{ asset('storage/images/' . $post->images) }}"></a>
+                <a href=""><img src="{{ asset('storage/images/' . $post->images) }}"></a>
                 <br>{{$post->username}}</br>
                 <br>{{$post->created_at}}</br>
                 <br>{{$post->post}}</br>
