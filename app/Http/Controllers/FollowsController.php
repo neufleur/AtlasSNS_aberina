@@ -7,29 +7,41 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Follow;
-
+use App\Follow;
 
 
 class FollowsController extends Controller
 {
-    //
-    public function followList(){
-            // フォローしているユーザーのidを取得
-              $following_id = Auth::user()->follows()->pluck('followed_id');
 
-            // フォローしているユーザーのidを元に投稿内容を取得
-              $followings = Post::with('user')->whereIn('id', $following_id)->get();
-              return redirect('/followsList' ,compact('followings'));
-            }
+    public function followList(Post $post, User $user, Follow $follow){
+        // フォローしているユーザーのidを取得 pluck()メソッドの中には今回取得したい情報のカラム名
+        $following_id = Auth::user()->follows()->pluck('followed_id');
+        // フォローしているユーザーのidを元に投稿内容を取得
+        $post = Post::whereIn('user_id', $following_id)->orderBy('created_at', 'desc')->get();
+          // フォローしているユーザーの情報を取得
+        $users = User::whereIn('id', $following_id)->get();
+        //dd($post);
+        $images = Auth::user()->follows()->get();
+    
+          return view('follows.followList',compact('post','images'));
+        }
 
 
-    public function followerList(){
-        return view('follows.followerList');
-    }
+public function followerList(Post $post, User $user, Follow $follow){
+    // フォローされてるユーザーのidを取得
+    $followed_id = Auth::user()->followers()->pluck('following_id');
+    // フォローされてるユーザーのidを元に投稿内容を取得
+    $post = Post::whereIn('user_id', $followed_id)->orderBy('created_at', 'desc')->get();
+      // フォローされてるユーザーの情報を取得
+    $users = User::whereIn('id', $followed_id)->get();
+    //dd($users);
+    $images = Auth::user()->followers()->get();
+    
+      return view('follows.followerList',compact('post','images'));
 
-
+}
 
 
 
