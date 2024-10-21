@@ -19,8 +19,8 @@
 
                 <div class="follow-post">
                 @foreach ($post as $post)
-                <a href=""><img src="{{ asset('storage/images/' . $post->images) }}"></a>
-                <br>{{$post->username}}</br>
+                <a href="{{ url('profile_users',$post->user->id)}}"><img src="{{ asset('storage/images/' . $post->user->images) }}"></a>
+                <br>{{$post->user->username}}</br>
                 <br>{{$post->created_at}}</br>
                 <br>{{$post->post}}</br>
                  @endforeach

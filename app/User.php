@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -45,7 +45,7 @@ class User extends Authenticatable
 //フォロワー
        public function followers(){
 
-        return $this->belongsToMany('App\User','follows', 'following_id', 'followed_id');
+        return $this->belongsToMany('App\User','follows', 'followed_id', 'following_id');
         //return $this->belongsToMany('⓵followersの場所', '⓶中間テーブル', '⓷自分のidが入る' ④相手モデルに関係しているid);
    }
 
@@ -70,7 +70,10 @@ class User extends Authenticatable
         return $this->follows()->detach($user_id);
 
     }
+//1対多のリレーション　User.phpにPostテーブルの関係はこういうものですよと繋ぐための記述　hasMany(Post.phpの場所)は1対多の"1"から見た"多"
+    public function Posts(){
+        return $this->hasMany('App\Post');
 
-
+    }
 
 }
