@@ -59,12 +59,14 @@ Route::post('/users/{user}/unFollow','FollowsController@unFollow')->name('unFoll
 //フォロー
 Route::post('/users/{user}/Follow','FollowsController@Follow')->name('Follow');
 
-//フォローリスト
+//フォローリスト フォロワーリスト
 Route::get('/follow-list','FollowsController@followList');
-Route::post('/follow-list','FollowsController@followList');
-
 Route::get('/follower-list','FollowsController@followerList');
-Route::post('/follower-list','FollowsController@followerList');
+
+Route::get('/profile_users','FollowsController@fProfile');
+Route::post('/profile_users','FollowsController@fProfile');
+
+
 });
 
 //authというミドルウェアは、ユーザがログインしているかどうかを確認できるミドルウェアです。

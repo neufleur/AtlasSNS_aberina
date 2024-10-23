@@ -45,6 +45,12 @@ public function followerList(Post $post, User $user, Follow $follow){
 
 }
 
+public function fProfile (){
+    $users = User::get();
+    return view('/profile_users');
+}
+
+
 
 
     //public function 関数(引数)引数　とは関数に渡して処理の中でその値を使うことができるもの (User $user)一致させないとだめ
@@ -80,5 +86,7 @@ public function followerList(Post $post, User $user, Follow $follow){
         $isFollowed = User::get();
         return view('top', compact('user'));
       }
+
+
 }
 
