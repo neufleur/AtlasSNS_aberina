@@ -47,7 +47,7 @@ public function followerList(Post $post, User $user, Follow $follow){
 
 public function fProfile (){
     $users = User::get();
-    return view('/profile_users');
+    return redirect('/profile_users');
 }
 
 
@@ -78,14 +78,7 @@ public function fProfile (){
         }
         return back();
     }
-    public function followsCounts(){
-        $isFollowing = User::get();
-        return view('top', compact('user'));
-      }
-      public function followersCounts(){
-        $isFollowed = User::get();
-        return view('top', compact('user'));
-      }
+   
 
 
 }

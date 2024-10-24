@@ -11,13 +11,13 @@
                 <h2>Follower list</h2>
                         @foreach ($images as $images)
                         @if($images->id !== Auth::user()->$images)
-                        <a  href="{{ url('profile_users',$images->id)}}"> <img src="{{ asset('storage/images/' . $images->images) }}"></a>
+                        <a  href="{{ url('/profile_users',$images->id)}}"> <img src="{{ asset('storage/images/' . $images->images) }}"></a>
                         @endif
                 @endforeach
                         </div>
                         <div class="follower-post">
                         @foreach ($post as $post)
-                        <a href="{{ url('profile_users',$post->user->id)}}"><img src="{{ asset('storage/images/' . $post->user->images) }}"></a>
+                        <a href="{{ url('/profile_users',$post->user->id)}}"><img src="{{ asset('storage/images/' . $post->user->images) }}"></a>
                         <br>{{$post->user->username}}</br>
                         <br>{{$post->created_at}}</br>
                         <br>{{$post->post}}</br>

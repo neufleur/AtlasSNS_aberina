@@ -63,8 +63,8 @@ Route::post('/users/{user}/Follow','FollowsController@Follow')->name('Follow');
 Route::get('/follow-list','FollowsController@followList');
 Route::get('/follower-list','FollowsController@followerList');
 
-Route::get('/profile_users','FollowsController@fProfile');
-Route::post('/profile_users','FollowsController@fProfile');
+//Route::get('/profile_users/{id}','FollowsController@fProfile');
+//Route::post('/profile_users/{id}','FollowsController@fProfile');
 
 
 });

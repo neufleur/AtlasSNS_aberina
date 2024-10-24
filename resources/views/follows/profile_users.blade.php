@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-<form action='/profile_users' method="get">
+<form action='/profile_users/{id}' method="get">
 
 </form>
 @endsection
