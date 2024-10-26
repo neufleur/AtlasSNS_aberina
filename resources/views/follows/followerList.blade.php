@@ -11,7 +11,7 @@
                         <h2>Follower list</h2>
                                 @foreach ($images as $images)
                                 @if($images->id !== Auth::user()->$images)
-                                <a  href="{{ url('/profile-users')}}"> <img src="{{ asset('storage/images/' . $images->images) }}"></a>
+                                <a  href="{{ url('/profile-users,$images->id')}}"> <img src="{{ asset('storage/images/' . $images->images) }}"></a>
                                 @endif
                         @endforeach
                                 </div>
