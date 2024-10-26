@@ -45,8 +45,8 @@ public function followerList(Post $post, User $user, Follow $follow){
 
 }
 
-public function followsProfile (){
-    $users = User::get();
+public function followsProfile (User $user){
+   $user = User::get();
     return view('profile-users');
 }
 
