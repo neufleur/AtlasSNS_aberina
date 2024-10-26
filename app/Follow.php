@@ -12,5 +12,8 @@ class Follow extends Model
        'user_id','follows', 'following_id', 'followed_id',
     ];
 
-    
+    public function User(){
+        return $this->belongsTo('App\User');
+
+    }
 }
