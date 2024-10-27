@@ -16,8 +16,9 @@
 
 <div class="other-post">
 @foreach ($post as $post)
-<img src="{{ asset('storage/images/' . $profile->images) }}">
-<br>{{ $post->username }}</br>
+<img src="{{ asset('storage/images/' . $post->user->images) }}">
+<br>{{ $post->user->username }}</br>
+<br>{{$post->created_at}}</br>
 <br>{{ $post->post }}</br>
 @endforeach
 </div>
