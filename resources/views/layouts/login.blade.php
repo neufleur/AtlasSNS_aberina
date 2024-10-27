@@ -25,23 +25,19 @@
 </head>
 <body>
     <header>
-        <div>
+        <div class="header-menu">
         <h1><a href="/top"><img class="atlas-png" src="{{ asset('images/atlas.png') }}"></a></h1>
-            <div id="">
-                <div class="menu">
-                    <p class="username">{{ session('username') }}さん</p>
-                 <p class="icon"><img src="{{ asset('storage/images/' . Auth::user()->images) }}"></p>
-                 </div>
                 <div class="nav-menu">
+                <p class="p-username">{{ Auth::user()->username }}さん</p>
                     <p class="nav-btn"></p>
                     <ul>
                     <li><a href="/top">HOME</a></li>
                     <li ><a href="/profile">プロフィール編集</a></li>
                     <li><a href="/logout">ログアウト</a></p></li>
                 </ul>
-                </div>
+                <p class="icon"><img src="{{ asset('storage/images/' . Auth::user()->images) }}" height="70px" width="70px"></p>
             </div>
-        </div>
+            </div>
     </header>
     <div id="row">
         <div id="container">
@@ -49,19 +45,19 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>{{ session('username') }}さんの</p>
+                <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>{{  Auth::user()->follows()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
+                <p class="list-btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>{{  Auth::user()->followers()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="list-btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href='/search'>ユーザー検索</a></p>
+            <p class="list-btn"><a href='/search'>ユーザー検索</a></p>
         </div>
     </div>
     <footer>

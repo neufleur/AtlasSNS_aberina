@@ -2,9 +2,7 @@
 html{
 
 }
-.atlas-png{
-  width: 150px;
-    }
+
 /*post*/
 #post {
     float: left;
@@ -17,10 +15,12 @@ textarea{
     border: 1px solid #b1b1b1;
     width: 1200px;
     padding: 10px;
-    margin-bottom: 20px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
     background: #fff;
     font-size: 20px;
-    font-weight: normal;
+    font-weight: 40px;
+    border-color: #b1b1b1;
 
   }
   .post-png{
@@ -38,11 +38,11 @@ width: 50px;
     padding: 15px;
     line-height: 1.6;
     vertical-align: top;
-    border-top: 1px solid #ddd
+    border-top: 2px solid #c0c0c0;
   }
   .post-table>thead>tr>th {
     vertical-align: bottom;
-    border-bottom: 2px solid #ddd
+    border-bottom: 2px solid #c0c0c0;
   }
 .edit-png{
   width: 50px;
@@ -51,7 +51,7 @@ width: 50px;
     width: 50px;
   }
   .image-container:hover {
-    background-image: url('public/images/trash.png');
+    background-image: url('public/images/atlas.png');
   }
 body{
 }
@@ -86,21 +86,34 @@ body{
   width: 60%;
 }
 /* header */
-header{
+
+.atlas-png{
+  width: 130px;
+  padding: 30px;
+    }
+
+.header-menu{
     background:#186AC9;
     color: #fff;
     font-size: 20px;
     font-weight: bold;
     justify-content:space-between;
-    width:100%;
     display: flex;
+    
+
 }
 
 /*アコーディオンメニュー*/
 .nav-menu{
-  padding: 10px 20px;
-
+  padding: 20px;
+  padding-inline: 50px;
+  display: flex;
+  column-gap:30px;
   }
+
+  .p-username{
+    margin-top: 30px;
+   }
 
 .nav-btn{
     position: relative;
@@ -113,6 +126,7 @@ header{
     border-bottom: 4px solid #fff;
     border-right: 4px solid #fff;
     transform:rotate(45deg);
+
 
 
   }
@@ -129,6 +143,7 @@ header{
     border-right: 4px solid #fff;
   transform:rotate(-135deg);
 
+
     }
 
 
@@ -141,11 +156,22 @@ header{
  font-size: 30px;
  font-weight: normal;
  font-family: sans-serif;
+ background-color: #fff;
 }
+
+/*サイドメニュー*/
+
 
 
 p.username{
     justify-content: flex-end;
+}
+
+.post-icon{
+  display: flex;
+  width: 80px;
+  height: 80px;
+  border-color: #fff;
 }
 p.icon{
     justify-content: flex-end;

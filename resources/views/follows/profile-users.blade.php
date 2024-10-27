@@ -9,7 +9,9 @@
 <img src="{{ asset('storage/images/' . $profile->images) }}">
 <br>{{ $profile->username }}</br>
 <br>{{ $profile->bio }}</br>
-</div>
+
+
+
 
 
 <div class="other-post">
