@@ -45,11 +45,15 @@ public function followerList(Post $post, User $user, Follow $follow){
 
 }
 
-public function followsProfile ($id){
+public function followsProfile ($id){  //idの受け取りのための記述を書く
 
-    $profile = User::where('id' , $id)->get();
-   dd($profile);
-    return view('follows.profile-users',compact('user'));
+    $profile = User::where('id' , $id)->first(); //first()などで1件のデータを取るメソッド
+    $users = DB::table('users')->leftJoin('post', 'user_id', '=', 'post-user_id')->where( 'user_id', '=' , $id );
+    //テーブル結合　外部結合leftJoin postテーブルのすべての行を取得し、テーブル'user_id'と 'post-user_id'の()の内のテーブルに一致しなくても存在するデータはすべt取得する方法
+   //dd($profile);
+   $post = Post::whereIn('user_id', $profile)->orderBy('created_at', 'desc')->get();
+   //dd($post);
+    return view('follows.profile-users',compact('profile'));
 }
 
 
