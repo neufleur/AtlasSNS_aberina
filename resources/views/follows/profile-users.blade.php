@@ -15,10 +15,10 @@
 
 
 <div class="other-post">
-@foreach ($profile as $post)
+@foreach ($post as $post)
 <img src="{{ asset('storage/images/' . $profile->images) }}">
-<br>{{ $profile->username }}</br>
-<br>{{ $profile->post }}</br>
+<br>{{ $post->username }}</br>
+<br>{{ $post->post }}</br>
 @endforeach
 </div>
 </form>

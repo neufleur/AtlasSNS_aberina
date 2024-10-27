@@ -53,7 +53,7 @@ public function followsProfile ($id){  //idの受け取りのための記述を�
    //dd($profile);
    $post = Post::whereIn('user_id', $profile)->orderBy('created_at', 'desc')->get();
    //dd($post);
-    return view('follows.profile-users',compact('profile'));
+    return view('follows.profile-users',compact('post','profile'));
 }
 
 
