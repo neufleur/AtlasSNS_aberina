@@ -10,7 +10,7 @@
                 <h2>Follow list</h2>
                       <!-- foreach 順番に取り出す($配列　as $値を入れる変数(単数)) -->
         <!-- フォローしてる画像のid(ユーザー)　==　ログインしているユーザーの画像　2つの値が異なるかどうかを確認　-->
-        <div class="f-imag">
+        <div class="f-img">
                 @foreach ($images as $images)
                 @if($images->id !== Auth::user()->$images)
                 <a href="{{ url('/profile-users',$images->id)}}"><img src="{{ asset('storage/images/' . $images->images) }}" width="90px" height="90px"></a>
@@ -19,20 +19,15 @@
                </div>
                 </div>
 
-                <div class="ff-post">
+              
                 @foreach ($post as $post)
-                <div class="f-imag">
-                <a href="{{ url('/profile-users',$post->user->id)}}"><img src="{{ asset('storage/images/' . $post->user->images) }}"width="90px" height="90px"></a>
+                <div class="ff-post">
+                <a href="{{ url('/profile-users',$post->user->id)}}"><img class="ff-img" src="{{ asset('storage/images/' . $post->user->images) }}"width="90px" height="90px"></a>
+                <div class="f-post-name"><br>{{$post->user->username}}</br>
+                <br> {{$post->post}}</br></div>
+                <div class="f-at"><span>{{$post->created_at}}</span></div>
                 </div>
-                <br>{{$post->user->username}}</br>
-                <br>{{$post->created_at}}</br>
-                <br>{{$post->post}}</br>
                  @endforeach
-                 
-                 </div>
-               
-
-
                 </form>
 
 @endsection
