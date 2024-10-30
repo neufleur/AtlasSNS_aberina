@@ -52,8 +52,10 @@ public function followsProfile ($id){  //idの受け取りのための記述を�
     //テーブル結合　外部結合leftJoin postテーブルのすべての行を取得し、テーブル'user_id'と 'post-user_id'の()の内のテーブルに一致しなくても存在するデータはすべt取得する方法
    //dd($profile);
    $post = Post::whereIn('user_id', $profile)->orderBy('created_at', 'desc')->get();
-   //dd($post);
+   //dd($user);
+
     return view('follows.profile-users',compact('post','profile'));
+
 }
 
 

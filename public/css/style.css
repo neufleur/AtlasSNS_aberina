@@ -322,7 +322,7 @@ p.icon{
   margin-left: 300px;
 }
 
-
+/* フォローフォロワーリスト*/
 .ff-images {
   font-size: 30px;
   border-bottom: 10px solid #ddd;
@@ -355,10 +355,41 @@ p.icon{
   padding: 10px 30px 0px 0px;
   margin-left: auto;
   font-size: 14px;
-  
 
 }
 
 .f-post-name{
   padding-top: 10px;
+}
+
+.other-profile{
+  border-bottom: 10px solid #ddd;
+  display: flex;
+  padding: 40px 0px 40px 0px;
+}
+
+.p-img{
+  margin-left: 110px;
+
+
+}
+.n-b{
+  display: flex;
+  padding-bottom: 10px;
+}
+.other-name-bio {
+  font-size: 22px;
+  padding: 20px 0px 0px 0px;
+
+}
+
+.p-name-bio{
+  padding:20px 0px 0px 150px;
+  font-size: 23px;
+  margin-left: auto;
+}
+
+.btn-danger{
+  margin-left: auto;
+ padding-right: 20px;
 }

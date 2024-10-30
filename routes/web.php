@@ -59,12 +59,13 @@ Route::post('/users/{user}/unFollow','FollowsController@unFollow')->name('unFoll
 //フォロー
 Route::post('/users/{user}/Follow','FollowsController@Follow')->name('Follow');
 
+
 //フォローリスト フォロワーリスト
 Route::get('/follow-list','FollowsController@followList');
 Route::get('/follower-list','FollowsController@followerList');
 
-Route::get('/profile-users/{id}','FollowsController@followsProfile');
-Route::post('/profile-users/{id}','FollowsController@followsProfile');
+Route::get('/profile-users/{user}','FollowsController@followsProfile');
+Route::post('/profile-users/{user}','FollowsController@followsProfile');
 
 
 });
