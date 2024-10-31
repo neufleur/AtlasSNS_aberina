@@ -88,8 +88,9 @@ body{
 /* header */
 
 .atlas-png{
-  width: 130px;
-  padding: 30px;
+  width: 160px;
+  padding: 30px 0px 0px 30px;
+
     }
 
 .header-menu{
@@ -105,7 +106,7 @@ body{
 
 /*アコーディオンメニュー*/
 .nav-menu{
-  padding: 20px;
+  padding: 10px;
   padding-inline: 50px;
   display: flex;
   column-gap:30px;
@@ -177,60 +178,60 @@ p.icon{
     justify-content: flex-end;
 }
 
+
+.search-text{
+  border-bottom: 10px solid #ddd;
+  display: flex;
+  padding: 60px;
+
+
+}
+.input{
+  padding: 0px 90px 0px 20px;
+  border-color: #b1b1b1;
+  border-width: 3px solid;
+  margin-right: 15px;
+  border-radius: 5px;
+  font-size: 24px;
+
+}
+
+.input::placeholder {
+  color: #b1b1b1;
+  font-weight: 1px;
+}
+
+.search-png{
+  width: 60px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+    }
+
 .search-table{
   margin-bottom: 22px;
   border-color: #b1b1b1;
   text-align: center;
 }
 .search-table>tbody>tr>td{
-  padding: 15px;
-  line-height: 1.0;
-  vertical-align: top;
-  border-top: 1px solid #ddd
+  font-size: 20px;
+
 }
 .search-table>thead>tr>th {
   vertical-align: bottom;
-  border-bottom: 2px solid #ddd
 }
 
-.search-png{
-  width: 50px;
-    }
-
-
-.ff-button{
-  position: absolute;
-  border-radius: 10px 10px 10px 10px;
-  width: 150px;
-  padding: 10px 0px 10px 0px;
- text-align: center;
-  font-size: 18px;
-  font-family: sans-serif;
-  color: #fff;
-  transition: all 0.3s;
-}
-.ff-button:before {
-	content: 'フォローする';
-}
-.checkbox {
-	display: none;
+.container-list{
+  padding: 10px 0px 0px 200px;
+  margin: 0px 160px 0px 120px;
 }
 
-.checkbox:checked+.ff-button{
-  position: absolute;
-  border-radius: 10px 10px 10px 10px;
-  width: 150px;
-  padding: 10px 0px 10px 0px;
-  display: inline-block;
-  font-size: 18px;
-  font-family: sans-serif;
-  color: #fff;
-  transition: all 0.3s;
+.search-ff{
+  position: relative;
+  bottom: 40px;
+  margin-left: 180px;
+}
 
-}
-.checkbox:checked+.ff-button:before{
-  content: 'フォロー解除';
-}
 
 .g-navi ul li a, .g-navi ul li p {
     text-align: right;

@@ -53,7 +53,7 @@
                 <p>フォロー数</p>
                 <p>{{  Auth::user()->follows()->count() }}名</p>
                 </div>
-                <p class="list-btn"><a href="/follow-list"><button type="submit" class="btn btn-primary">フォローする</button></a></p>
+                <p class="list-btn"><a href="/follow-list"><button type="submit" class="btn btn-primary">フォローリスト</button></a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>{{  Auth::user()->followers()->count() }}名</p>
