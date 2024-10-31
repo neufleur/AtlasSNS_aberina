@@ -7,9 +7,11 @@
     <!--IEブラウザ対策-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -22,6 +24,7 @@
     <!--OGPタグ/twitterカード-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/script.js"></script>
+
 </head>
 <body>
     <header>
@@ -50,14 +53,14 @@
                 <p>フォロー数</p>
                 <p>{{  Auth::user()->follows()->count() }}名</p>
                 </div>
-                <p class="list-btn"><a href="/follow-list">フォローリスト</a></p>
+                <p class="list-btn"><a href="/follow-list"><button type="submit" class="btn btn-primary">フォローする</button></a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>{{  Auth::user()->followers()->count() }}名</p>
                 </div>
-                <p class="list-btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="list-btn"><a href="/follower-list"><button type="submit" class="btn btn-primary">フォロワーリスト</button></a></p>
             </div>
-            <p class="list-btn"><a href='/search'>ユーザー検索</a></p>
+            <p class="list-btn"><a href='/search'><button type="submit" class="btn btn-primary">ユーザー検索</button></a></p>
         </div>
     </div>
     <footer>

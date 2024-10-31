@@ -20,7 +20,7 @@
 <form action="{{ route('unFollow', ['user' => $profile->id]) }}" method="post">
 @csrf
   <!-- フォロー解除-->
-  <td><button type="submit" class="btn btn-danger">フォロー解除</button></td>
+  <td><style></style><button type="submit" class="btn btn-danger">フォロー解除</button></td></style>
 </form>
 @else
 <form action="{{ route('Follow', ['user' => $profile->id]) }}"  method="post">
@@ -28,6 +28,7 @@
 @csrf
 <td><button type="submit" class="btn btn-primary">フォローする</button></td>
 @endif
+</style>
 </form>
 </div>
 
