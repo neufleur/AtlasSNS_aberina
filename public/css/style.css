@@ -106,7 +106,7 @@ body{
 
 /*アコーディオンメニュー*/
 .nav-menu{
-  padding: 10px;
+  padding: 7px;
   padding-inline: 50px;
   display: flex;
   column-gap:30px;
@@ -153,7 +153,6 @@ body{
 }
 
 .nav-menu ul li{
- padding: 20px;
  font-size: 30px;
  font-weight: normal;
  font-family: sans-serif;
@@ -162,9 +161,35 @@ body{
 
 /*サイドメニュー*/
 
-
+.side-bar{
+  font-size: 18px;
+  border-left: 2px solid #727272;
+  padding: 20px 0px 0px 30px;
+}
+.f-count{
+  display: flex;
+}
+.count{
+  padding-right: 18px;
+}
+.ff-count{
+  position: relative;
+  bottom: 80px;
+}
+.list-btn{
+  position: relative;
+  bottom: 90px;
+  padding-left: 120px;
+  text-align-last: right;
+}
+.list-search{
+  border-top: 1px solid #808080;
+  position: relative;
+    bottom: 40px;
+}
 
 p.username{
+  margin-top: 40px;
     justify-content: flex-end;
 }
 
@@ -176,6 +201,7 @@ p.username{
 }
 p.icon{
     justify-content: flex-end;
+    margin-top:  10px;
 }
 
 
@@ -247,7 +273,7 @@ p.icon{
 /* main content */
 #row{
     display: flex;
-    flex-flow: row wrap;
+
 }
 #container{
     flex: 0 0 80%;
