@@ -16,10 +16,11 @@
 @endif
   <!-- バリデーションチェックに引っかかった場合、ビューファイルにエラーメッセージを表示させる必要がある @if($errors->any())から@endifまで
 具体的には、エラーメッセージが1つ以上存在するかどうかを確認し、エラーメッセージが存在する場合は、全てのエラーメッセージをforeachを使って表示させています。-->
-
-<label><p class="icon"><img src="{{ asset('storage/images/' . Auth::user()->images) }}">
-<textarea name="post" placeholder="投稿内容を入力してください" value="" cols="20" rows="6"></textarea><button id="sbtn" type="submit"><img class="post-png" src="{{ asset('images/post.png') }}" ></button></label></p>
-
+<div>
+<p class="icon"><img src="{{ asset('storage/images/' . Auth::user()->images) }}"></p>
+<textarea name="post" placeholder="投稿内容を入力してください" value="" cols="10" rows="3"></textarea>
+<button id="sbtn" type="submit"><img class="post-png" src="{{ asset('images/post.png') }}" ></button>
+</div>
 
 {{ Form::close() }}
 

@@ -47,8 +47,8 @@
             @yield('content')
         </div >
             <div class="side-bar">
-
-                <p>{{ Auth::user()->username }}さんの</p>
+          
+                <p class="side-name">{{ Auth::user()->username }}さんの</p>
                 <div class="f-count">
                 <p class="count">フォロー数</p>
                 <p>{{  Auth::user()->follows()->count() }}名</p>
@@ -63,7 +63,6 @@
                 </div>
                 <p class="fw-list-btn"><a href="/follower-list"><button type="submit" class="btn btn-primary">フォロワーリスト</button></a></p>
 
-                <div>
             <p class="list-search"><a href='/search'><button type="submit" class="btn btn-primary">ユーザー検索</button></a></p>
             </div>
             </div>
