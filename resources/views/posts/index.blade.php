@@ -4,7 +4,8 @@
 @csrf
 {{ Form::open(['url' => '/posts']) }}
  <!--新規投稿 <form action='/posts' method="post">  @csrfはフォームの外側に入力-->
-<div id="post">
+<div id="post-all">
+  <div class="post">
 @if($errors->any())
     <div class="alert alert-danger">
       <ul>
@@ -16,12 +17,13 @@
 @endif
   <!-- バリデーションチェックに引っかかった場合、ビューファイルにエラーメッセージを表示させる必要がある @if($errors->any())から@endifまで
 具体的には、エラーメッセージが1つ以上存在するかどうかを確認し、エラーメッセージが存在する場合は、全てのエラーメッセージをforeachを使って表示させています。-->
-<div>
-<p class="icon"><img src="{{ asset('storage/images/' . Auth::user()->images) }}"></p>
+<div >
+<p class="icon"><img src="{{ asset('storage/images/' . Auth::user()->images) }}" width="70px" height="70px">
 <textarea name="post" placeholder="投稿内容を入力してください" value="" cols="10" rows="3"></textarea>
-<button id="sbtn" type="submit"><img class="post-png" src="{{ asset('images/post.png') }}" ></button>
-</div>
 
+<button class="post-png"><img class="post-png" src="{{ asset('images/post.png') }}" ></button></p>
+</div>
+</div>
 {{ Form::close() }}
 
 <table class="post-table table-hover">
@@ -39,7 +41,7 @@
                 <td>{{ $post->delete }}</td>
                 <!-- モーダルの中身 open -->
                 <td><a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}" href="/post/{{$post->id}}/update-Form"><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a></td>
-                <td><a class="btn btn-danger" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')"><img class="trash-h" src="{{ asset('images/trash-h.png') }}" ></a></td>
+                <td><a class="trash-h" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')"><img class="trash-h" src="{{ asset('images/trash-h.png') }}" ></a></td>
            <!-- 更新ボタンの作成 クラス名「btn-primary」を追加 HTTPの通信方法をGETにして、URLにパラメータを一緒に送れるように -->
                 <!-- ↓　ここを追加してください こちらもパラメータ付きのGET送信になるので、移動先のURL指定に各リストのID番号を設置しております。 -->
             </tr>

@@ -3,26 +3,34 @@ html{
 
 }
 
-/*post*/
-#post {
-    float: left;
+/*post 詳細度を上書き　*/
+#post-all {
     border-radius: 3px;
     font-size: 18px;
 
-
 }
-textarea{
+.post{
+  border-bottom: 8px solid #ddd;
+  padding-left: 50px;
+}
 
-    width: 1200px;
+.icon textarea{
+    width: 900px;
     padding: 10px;
     background: #fff;
     font-size: 20px;
     resize: none;
     border: none;
 
-  }
+}
   .post-png{
 width: 50px;
+border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  }
+  .{
+    
   }
 
   .post-table {
@@ -36,7 +44,7 @@ width: 50px;
     padding: 15px;
     line-height: 1.6;
     vertical-align: top;
-    border-top: 2px solid #c0c0c0;
+    border-bottom: 2px solid #c0c0c0;
   }
   .post-table>thead>tr>th {
     vertical-align: bottom;
@@ -47,6 +55,10 @@ width: 50px;
 }
   .trash-h{
     width: 50px;
+    border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  
   }
   .image-container:hover {
     background-image: url('public/images/atlas.png');
@@ -385,7 +397,6 @@ p.icon{
   margin-left: 70px;
 }
 .ff-img{
-  padding-top: 8px;
   margin-left: 120px;
  display: flex;
 
@@ -394,9 +405,8 @@ p.icon{
   display: flex;
 }
 .ff-post{
- display: flex;
  border-bottom: 2px solid #b1b1b1;
- padding: 10px 0px 10px 0px;
+ display: flex;
 }
 .f-at{
   padding: 10px 30px 0px 0px;
@@ -406,13 +416,15 @@ p.icon{
 }
 
 .f-post-name{
-  padding-top: 10px;
+ position: relative;
+ bottom: 10px;
+ 
 }
 
 .other-profile{
   border-bottom: 10px solid #ddd;
+  padding: 15px 0px 15px 0px;
   display: flex;
-  padding: 30px 0px 30px 0px;
 }
 
 .p-img{
@@ -423,22 +435,32 @@ p.icon{
 .n-b{
   display: flex;
   padding-bottom: 10px;
+
 }
-.other-name-bio {
+.other-name {
   font-size: 22px;
   padding: 20px 0px 0px 0px;
+  margin-right: auto;
+
+}
+.other-bio {
+  font-size: 22px;
+  padding: 20px 27px 0px 0px;
 
 }
 
 .p-name-bio{
-  padding:20px 0px 0px 150px;
+  padding:20px 0px 0px 70px;
   font-size: 23px;
+
+
+}
+.btn{
   margin-left: auto;
 }
 
 button.btn.btn-danger{
   margin-top: 100px;
-  margin-left: auto;
   margin-right: 18px;
  padding: 8px 27px  8px 27px;
   display: inline-block;
