@@ -54,8 +54,8 @@ class PostsController extends Controller
    }
    }
 //編集機能　表示入力
-public function updateForm($id){
-        $post = Post::where('id', $id)->first(); //該当レコードの最初のレコードのみを取得するもの なぜか　画面が表示されないのはコントローラーが間違ってる可能性あり
+public function updateForm(){
+        $post = Post::where('user_id',\Auth::user()->id)->first(); //該当レコードの最初のレコードのみを取得するもの なぜか　画面が表示されないのはコントローラーが間違ってる可能性あり
        return view('post.update-Form', ['post'=>$post]);
    }
 //編集機能 結果

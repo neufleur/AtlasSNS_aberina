@@ -18,8 +18,8 @@
   <!-- バリデーションチェックに引っかかった場合、ビューファイルにエラーメッセージを表示させる必要がある @if($errors->any())から@endifまで
 具体的には、エラーメッセージが1つ以上存在するかどうかを確認し、エラーメッセージが存在する場合は、全てのエラーメッセージをforeachを使って表示させています。-->
 <div >
-<p class="icon"><img src="{{ asset('storage/images/' . Auth::user()->images) }}" width="70px" height="70px">
-<textarea name="post" placeholder="投稿内容を入力してください" value="" cols="10" rows="3"></textarea>
+<p class="icon"><img class="post-images" src="{{ asset('storage/images/' . Auth::user()->images) }}" width="70px" height="70px">
+<textarea name="post" placeholder="投稿内容を入力してください。" value="" cols="10" rows="3"></textarea>
 
 <button class="post-png"><img class="post-png" src="{{ asset('images/post.png') }}" ></button></p>
 </div>
@@ -31,17 +31,15 @@
                 <form action=/post/update method="get">
                 @foreach($post as $post)
                 <tr>
-                <td class="p-img"><img src="{{ asset('storage/images/' . Auth::user()->images) }}" width="70px" height="70px"></td>
-                <!-- <td>{{ $post->id }}</td> -->
-                <!-- <td>{{ $post->user_id }}</td> -->
+                <td class="p-img"><img src="{{ asset('storage/images/' . $post->user->images) }}" width="70px" height="70px"></td>
                 <td>{{ $post->post}}</td>
-                <td>{{ $post->created_at->format('Y.m.d.G:i')}}</td>
+                <td><div class="p-at">{{ $post->created_at->format('Y.m.d.G:i')}}</div></td>
                 <!-- authorがBook.php（モデル）に定義したメソッドで、nameがテーブルのカラム名を表しています。 -->
-                <td>{{ $post->update }}</td>
-                <td>{{ $post->delete }}</td>
+                @if(Auth::user()->id ==$post->user_id)
                 <!-- モーダルの中身 open -->
                 <td><a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}" href="/post/{{$post->id}}/update-Form"><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a></td>
                 <td><a class="trash-h" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')"><img class="trash-h" src="{{ asset('images/trash-h.png') }}" ></a></td>
+                @endif
            <!-- 更新ボタンの作成 クラス名「btn-primary」を追加 HTTPの通信方法をGETにして、URLにパラメータを一緒に送れるように -->
                 <!-- ↓　ここを追加してください こちらもパラメータ付きのGET送信になるので、移動先のURL指定に各リストのID番号を設置しております。 -->
             </tr>

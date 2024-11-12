@@ -16,21 +16,28 @@ html{
 
 .icon textarea{
     width: 900px;
-    padding: 10px;
+    padding-top: 50px;
+    color:#c0c0c0;
     background: #fff;
-    font-size: 20px;
+    font-size: 22px;
     resize: none;
     border: none;
+    position: relative;
+    left: 40px;
 
 }
   .post-png{
-width: 50px;
+  width: 50px;
 border-radius: 5px;
   border: none;
   background-color: #fff;
+  position: relative;
+    left: 25px;
   }
-  .{
-    
+  .post-images{
+    position: relative;
+    bottom: 80px;
+    left: 30px;
   }
 
   .post-table {
@@ -39,26 +46,38 @@ border-radius: 5px;
   border-color: #b1b1b1;
 
   }
-
+  .post-table>tbody>tr{
+    vertical-align: bottom;
+    border-bottom: 2px solid #c0c0c0;
+  }
   .post-table>tbody>tr>td{
     padding: 15px;
     line-height: 1.6;
     vertical-align: top;
-    border-bottom: 2px solid #c0c0c0;
   }
-  .post-table>thead>tr>th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #c0c0c0;
+  .p-at{
+    padding: 10px 30px 0px 0px;
+    margin-left: auto;
+    font-size: 14px;
+  
   }
+
 .edit-png{
   width: 50px;
+  position: relative;
+  left: 200px;
+  top: 20px;
+
 }
   .trash-h{
     width: 50px;
     border-radius: 5px;
   border: none;
   background-color: #fff;
-  
+  position: relative;
+  left: 45px;
+  top: 10px;
+
   }
   .image-container:hover {
     background-image: url('public/images/atlas.png');
@@ -174,10 +193,10 @@ body{
 .side-bar{
   font-size: 18px;
   border-left: 2px solid #727272;
-
+}
 .side-name{
   padding: 30px 0px 0px 20px;
-}
+
 }
 .f-count{
   display: flex;
@@ -210,6 +229,7 @@ padding: 7px 0px 0px 20px;
   text-align-last: right;
   border-bottom: 1.5px solid #b1b1b1;
   padding-bottom: 35px;
+  cursor: pointer;
 }
 
 .list-search{
@@ -233,7 +253,7 @@ p.username{
 }
 p.icon{
     justify-content: flex-end;
-    margin-top:  10px;
+
 }
 
 
