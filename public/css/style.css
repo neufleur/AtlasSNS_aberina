@@ -16,7 +16,7 @@ html{
 
 .icon textarea{
     width: 900px;
-    padding-top: 50px;
+    padding: 20px;
     color:#c0c0c0;
     background: #fff;
     font-size: 22px;
@@ -24,9 +24,10 @@ html{
     border: none;
     position: relative;
     left: 40px;
-
+    top: 30px;
 }
-  .post-png{
+
+.post-png{
   width: 50px;
 border-radius: 5px;
   border: none;
@@ -34,40 +35,34 @@ border-radius: 5px;
   position: relative;
     left: 25px;
   }
+  .p-img{
+    margin-left: 110px;
+    position:relative;
+    top:20px;
+  }
   .post-images{
     position: relative;
-    bottom: 80px;
-    left: 30px;
+    bottom: 70px;
+    left: 50px;
   }
+.edit-trash{
+  position: relative;
+  bottom: 10px;
+  left: 10px;
+}
+.modal_post{
+  width: 600px;
+    padding: 20px;
+    resize: none;
 
-  .post-table {
-    width: 100%;
-  margin-bottom: 22px;
-  border-color: #b1b1b1;
-
-  }
-  .post-table>tbody>tr{
-    vertical-align: bottom;
-    border-bottom: 2px solid #c0c0c0;
-  }
-  .post-table>tbody>tr>td{
-    padding: 15px;
-    line-height: 1.6;
-    vertical-align: top;
-  }
-  .p-at{
-    padding: 10px 30px 0px 0px;
-    margin-left: auto;
-    font-size: 14px;
-  
-  }
+}
 
 .edit-png{
   width: 50px;
+  border: none;
   position: relative;
-  left: 200px;
   top: 20px;
-
+  background-color: #fff;
 }
   .trash-h{
     width: 50px;
@@ -75,7 +70,7 @@ border-radius: 5px;
   border: none;
   background-color: #fff;
   position: relative;
-  left: 45px;
+
   top: 10px;
 
   }
@@ -447,11 +442,6 @@ p.icon{
   display: flex;
 }
 
-.p-img{
-  margin-left: 110px;
-
-
-}
 .n-b{
   display: flex;
   padding-bottom: 10px;
