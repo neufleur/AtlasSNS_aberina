@@ -53,17 +53,15 @@
                 <p class="count">フォロー数</p>
                 <p>{{  Auth::user()->follows()->count() }}名</p>
                 </div>
-                <p class="f-list-btn"><a href="/follow-list"><button type="submit" class="btn btn-primary">フォローリスト</button></a></p>
-
-               
+                <p class="f-list-btn"><button type="submit" class="btn btn-primary"><a href="/follow-list">フォローリスト</a></button></p>
 
                 <div class="fw-count">
                 <p class="count">フォロワー数</p>
                 <p>{{  Auth::user()->followers()->count() }}名</p>
                 </div>
-                <p class="fw-list-btn"><a href="/follower-list"><button type="submit" class="btn btn-primary">フォロワーリスト</button></a></p>
+                <p class="fw-list-btn"><button type="submit" class="btn btn-primary"><a href="/follower-list">フォロワーリスト</a></button></p>
 
-            <p class="list-search"><a href='/search'><button type="submit" class="btn btn-primary">ユーザー検索</button></a></p>
+            <p class="list-search"><button type="submit" class="btn btn-primary"><a href='/search'>ユーザー検索</a></button></p>
             </div>
             </div>
     </div>

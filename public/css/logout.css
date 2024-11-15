@@ -1,10 +1,178 @@
 @charset "UTF-8";
 
 html{
-    height: 100%;
+    /* background-color:#186AC9; */
+    padding-top:130px;
+    padding-bottom: 50px;
 }
 
 body{
-    height: 100%;
-    background: #186AC9;
+    height:90vh;
+    /* background-color:#FFFF66; */
+  background-image: linear-gradient(0deg, #FFFF66 0%, #186AC9 100%);
+}
+.h1-atlas{
+    margin-top: 60px;
+    width: 180px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sub{
+    text-align: center;
+    display: block;
+    font-size: 40px;
+    color: #FFF;
+    /* padding-bottom: 70px; */
+}
+
+/* ログインページ */
+.login{
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgb(0 0 0 / 20%);
+    text-align: center;
+   width: 380px;
+   height: 380px;
+   padding: 40px 0px 40px 0px;
+   border-radius: 18px;
+}
+
+.atlas-yoko{
+    font-size: 25px;
+    color: #FFF;
+    padding-bottom: 15px;
+}
+
+.login-user{
+    flex-direction:column;
+    display: flex;
+}
+.login label{
+    font-size: 18px;
+    color: #FFF;
+    margin-right: auto;
+    margin-left: 40px;
+    padding-bottom: 5px;
+    text-transform:lowercase;
+    padding-top: 30px;
+}
+.login-input{
+    padding: 15px;
+    width: 280px;
+    border-radius: 8px;
+    border-width: 1px;
+    margin:0 auto;
+    font-size: 18px;
+}
+.new-user{
+    padding-top: 30px;
+    font-size: 20px;
+    color: #FFF;
+    font-weight: lighter;
+}
+.login-btn{
+    border-radius: 10px 10px 10px 10px;
+    width: 150px;
+    padding: 5px 10px 5px 10px;
+    display: inline-block;
+    font-size: 25px;
+    font-family: sans-serif;
+    color: #fff;
+    background-color:#e43838;
+    border-color: #e43838;
+    margin-left:160px;
+    margin-top: 20px;
+}
+
+/* 新規登録ページ */
+.register{
+    margin-top:15px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgb(0 0 0 / 20%);
+    text-align: center;
+   width: 380px;
+   height: 550px;
+   padding: 40px 0px 40px 0px;
+   border-radius: 18px;
+}
+
+.atlas-yoko{
+    font-size: 25px;
+    color: #FFF;
+    padding-bottom: 15px;
+}
+.login-user{
+    flex-direction:column;
+    display: flex;
+}
+.register label{
+    font-size: 18px;
+    color: #FFF;
+    margin-right: auto;
+    margin-left: 40px;
+    padding-bottom: 5px;
+    text-transform:lowercase;
+    padding-top: 30px;
+}
+
+.register-btn{
+    border-radius: 10px 10px 10px 10px;
+    width: 150px;
+    padding: 5px 10px 5px 10px;
+    display: inline-block;
+    font-size: 25px;
+    font-family: sans-serif;
+    color: #fff;
+    background-color:#e43838;
+    border-color: #e43838;
+    margin-left:160px;
+    margin-top: 20px;
+}
+.back{
+    font-size: 25px;
+    color: #FFF;
+    padding-top: 20px;
+}
+/* 登録完了ページ */
+.added-login{
+    margin-top:15px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgb(0 0 0 / 20%);
+    text-align: center;
+   width: 380px;
+   height: 250px;
+   padding: 40px 0px 40px 0px;
+   border-radius: 18px;
+}
+.name-yoko{
+    font-size: 24px;
+    color: #fff;
+   font-weight: bold;
+   padding-bottom: 15px;
+}
+.added{
+    padding-top: 20px;
+}
+.added-yoko{
+    padding-bottom: 10px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.added-btn{
+    border-radius: 10px 10px 10px 10px;
+    width: 150px;
+    padding: 15px 10px 15px 10px;
+    display: inline-block;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #fff;
+    background-color:#e43838;
+    border-color: #e43838;
+    margin-top: 25px;
 }

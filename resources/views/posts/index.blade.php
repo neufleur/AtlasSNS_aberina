@@ -34,7 +34,7 @@
                 <div class="p-img"><img src="{{ asset('storage/images/' . $post->user->images) }}"  width="70px" height="70px"></div>
                 <div class="f-post-name"><br>{{$post->user->username}}</br>
                 <br>{{$post->post}}</br></div>
-               <div class="f-at"><span>{{ $post->created_at->format('Y.m.d.G:i')}}</span>
+               <div class="f-at"><span>{{ $post->created_at->format('Y.m.d.H:i')}}</span>
               
                 <!-- authorがBook.php（モデル）に定義したメソッドで、nameがテーブルのカラム名を表しています。 -->
                 <div class="edit-trash">

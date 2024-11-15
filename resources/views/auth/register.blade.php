@@ -3,27 +3,28 @@
 @section('content')
 <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/register']) !!}
+<div class="register">
+<h2 class="atlas-yoko">新規ユーザー登録</h2>
+<div class="login-user">
+{{ Form::label('user name') }}
+{{ Form::text('username',null,['class' => 'login-input']) }}
 
-<h2>新規ユーザー登録</h2>
+{{ Form::label('mail adress') }}
+{{ Form::text('mail',null,['class' => 'login-input']) }}
 
-{{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+{{ Form::label('password') }}
+{{ Form::text('password',null,['class' => 'login-input']) }}
 
-{{ Form::label('メールアドレス') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
+{{ Form::label('password comfirm') }}
+{{ Form::text('password_confirmation',null,['class' => 'login-input']) }}
+</div>
 
-{{ Form::label('パスワード') }}
-{{ Form::text('password',null,['class' => 'input']) }}
+{{ Form::submit('REGISTER',['class' => 'register-btn']) }}
 
-{{ Form::label('パスワード確認') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
-
-{{ Form::submit('登録') }}
-
-<p><a href="/login">ログイン画面へ戻る</a></p>
+<a href="/login"><p class="back">ログイン画面へ戻る</p></a>
 
 {!! Form::close() !!}
-
+</div>
 
 @endsection
 

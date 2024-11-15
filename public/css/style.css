@@ -1,7 +1,5 @@
 @charset "utf-8";
-html{
 
-}
 
 /*post 詳細度を上書き　*/
 #post-all {
@@ -70,7 +68,6 @@ border-radius: 5px;
   border: none;
   background-color: #fff;
   position: relative;
-
   top: 10px;
 
   }
@@ -124,7 +121,6 @@ body{
     font-weight: bold;
     justify-content:space-between;
     display: flex;
-    
 
 }
 
@@ -188,7 +184,17 @@ body{
 .side-bar{
   font-size: 18px;
   border-left: 2px solid #727272;
+  flex-basis: 20%;
 }
+.side-bar a{
+  color: #fff;
+  text-decoration: none;
+}
+.side-bar a:hover{
+  color: #fff;
+  text-decoration: none;
+}
+
 .side-name{
   padding: 30px 0px 0px 20px;
 
@@ -199,8 +205,7 @@ padding: 7px 0px 0px 20px;
 }
 .fw-count{
   display: flex;
-  position: relative;
-  bottom: 80px;
+  /* bottom: 80px; */
   padding: 0px 0px 0px 20px;
 }
 .count{
@@ -212,14 +217,10 @@ padding: 7px 0px 0px 20px;
 
 }
 .f-list-btn{
-  position: relative;
-  bottom: 100px;
   padding-left: 120px;
   text-align-last: right;
 }
 .fw-list-btn{
-  position: relative;
-  bottom: 180px;
   padding-left: 90px;
   text-align-last: right;
   border-bottom: 1.5px solid #b1b1b1;
@@ -228,11 +229,8 @@ padding: 7px 0px 0px 20px;
 }
 
 .list-search{
-  max-width: 500px;
   border-spacing: 10px;
-  position: relative;
-  bottom: 270px;
-  left: 80px;
+  padding-left: 30%;
 }
 
 p.username{
@@ -479,11 +477,15 @@ button.btn.btn-danger{
 }
 
 button.btn.btn-primary{
-  margin-top: 100px;
   margin-left: auto;
   margin-right: 18px;
  padding: 8px 27px  8px 27px;
   display: inline-block;
   font-size: 16px;
   border-radius: 8px;
+}
+
+.list-search button.btn.btn-primary{
+
+  margin-right:0px;
 }
