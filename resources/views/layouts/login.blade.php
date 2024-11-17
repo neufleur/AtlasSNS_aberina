@@ -33,10 +33,10 @@
                 <div class="nav-menu">
                 <p class="p-username">{{ Auth::user()->username }}さん</p>
                     <p class="nav-btn"></p>
-                    <ul>
-                    <li><a href="/top">HOME</a></li>
-                    <li ><a href="/profile">プロフィール編集</a></li>
-                    <li><a href="/logout">ログアウト</a></p></li>
+                    <ul class="nav-btn-ul">
+                    <li class="nav-btn-li"><a href="/top">HOME</a></li>
+                    <li class="nav-btn-li"><a href="/profile">プロフィール編集</a></li>
+                    <li class="nav-btn-li"><a href="/logout">ログアウト</a></li>
                 </ul>
                 <p class="icon"><img src="{{ asset('storage/images/' . Auth::user()->images) }}" height="70px" width="70px"></p>
             </div>

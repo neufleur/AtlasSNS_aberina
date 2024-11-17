@@ -130,6 +130,7 @@ body{
   padding-inline: 50px;
   display: flex;
   column-gap:30px;
+
   }
 
   .p-username{
@@ -167,18 +168,47 @@ body{
 
     }
 
-
+ul .nav-menu ul{
+  display: inline-block;
+  position: relative;
+ }
 .nav-menu ul{
-  display: none;
+ border-color: #000080;
+ border-width: 10px;
+ 
+  /* padding: 10px; */
+
 }
 
 .nav-menu ul li{
+  padding: 20px;
  font-size: 30px;
  font-weight: normal;
  font-family: sans-serif;
  background-color: #fff;
+
+}
+.nav-menu ul li:hover{
+  font-size: 30px;
+  font-weight: normal;
+  font-family: sans-serif;
+  background-color: #fff;
+  background-color: #000080;
+ }
+
+.nav-menu li a{
+  padding: 20px;
+  color: #808080;
+  text-decoration: none;
+  font-weight: 100;
 }
 
+.nav-menu li a:hover{
+  padding: 20px;
+  color: #808080;
+  text-decoration: none;
+  font-weight: 100;
+}
 /*サイドメニュー*/
 
 .side-bar{
