@@ -33,7 +33,7 @@
                 <div class="nav-menu">
                 <p class="p-username">{{ Auth::user()->username }}さん</p>
                     <p class="nav-btn"></p>
-                    <ul class="nav-btn-ul">
+                    <ul>
                     <li class="nav-btn-li"><a href="/top">HOME</a></li>
                     <li class="nav-btn-li"><a href="/profile">プロフィール編集</a></li>
                     <li class="nav-btn-li"><a href="/logout">ログアウト</a></li>

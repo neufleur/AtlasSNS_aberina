@@ -129,7 +129,7 @@ body{
   padding: 7px;
   padding-inline: 50px;
   display: flex;
-  column-gap:30px;
+  column-gap:20px;
 
   }
 
@@ -141,13 +141,16 @@ body{
     position: relative;
     cursor: pointer;
     display: inline-block;
-    height: 18px;
-    width: 18px;
+    height: 20px;
+    width: 20px;
     margin: 0 10px;
-    top:40%;
-    border-bottom: 4px solid #fff;
-    border-right: 4px solid #fff;
-    transform:rotate(45deg);
+    top:30%;
+    border-bottom: 6px solid #fff;
+    border-right: 6px solid #fff;
+    transform:rotate(45deg)skew(
+      calc((90deg - 45deg) / 2),
+      calc((90deg - 45deg) / 2)
+    );
 
 
 
@@ -160,28 +163,32 @@ body{
     height: 18px;
     width: 18px;
     margin: 0 10px;
-    top:40%;
-    border-bottom: 4px solid #fff;
-    border-right: 4px solid #fff;
-  transform:rotate(-135deg);
+    top:50%;
+    border-bottom: 6px solid #fff;
+    border-right: 6px solid #fff;
+  transform:rotate(-135deg)skew(
+    calc((90deg - 45deg) / 2),
+    calc((90deg - 45deg) / 2)
+  );
 
 
     }
 
-ul .nav-menu ul{
+
+.nav-menu ul{
   display: inline-block;
   position: relative;
- }
-.nav-menu ul{
- border-color: #000080;
- border-width: 10px;
- 
-  /* padding: 10px; */
+  border-color: #000080;
+  border-width: 10px;
+  position: absolute;
+  top: 100px;
+  right: 2px;
+  display: none;
 
 }
 
 .nav-menu ul li{
-  padding: 20px;
+  padding: 31px;
  font-size: 30px;
  font-weight: normal;
  font-family: sans-serif;
@@ -276,6 +283,8 @@ p.username{
 }
 p.icon{
     justify-content: flex-end;
+    position:relative;
+    top: 7px;
 
 }
 
@@ -287,7 +296,7 @@ p.icon{
 
 
 }
-.input{
+.search-input{
   padding: 0px 90px 0px 20px;
   border-color: #b1b1b1;
   border-width: 3px solid;
@@ -333,6 +342,14 @@ p.icon{
   margin-left: 180px;
 }
 
+.search-ff button.btn.btn-primary{
+  margin-top: 100px;
+  margin-right: 18px;
+ padding: 8px 27px  8px 27px;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+}
 
 .g-navi ul li a, .g-navi ul li p {
     text-align: right;

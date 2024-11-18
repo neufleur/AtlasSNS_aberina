@@ -7,11 +7,8 @@
     <form action='/search' method="post"> <!--actionを変える -->
         @csrf
         <div class="search-text">
-        <input type="text" name="keyword" class="input" placeholder="ユーザー名" >
-         @if(!empty($keyword))
-        <div class="alert alert-primary">{{$keyword}}</div>
+        <input type="text" name="keyword" class="search-input" placeholder="ユーザー名" value="<?php echo $keyword ?>" >
         <!--name="keyword"で入力されたものを入れる -->
-        @endif
      <button class="search-png"><img class="search-png" src="{{ asset('images/search.png') }}" ></button>
         </div>
     </form>
