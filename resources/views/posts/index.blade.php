@@ -39,9 +39,9 @@
                 <!-- authorがBook.php（モデル）に定義したメソッドで、nameがテーブルのカラム名を表しています。 -->
                 <div class="edit-trash">
                  @if(Auth::user()->id ==$post->user_id)
-                <!-- モーダルの中身 open -->
+                <!-- モーダルの中身 open --> 
                 <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}" href="/post/{{$post->id}}/update-Form"><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a>
-                <a class="trash-h" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')"><img class="trash" src="{{ asset('images/trash.png') }}" ></a>
+                <a class="trash" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')"><img class="trash-png"></a>
                 @endif
                 </div>
                 </div>
