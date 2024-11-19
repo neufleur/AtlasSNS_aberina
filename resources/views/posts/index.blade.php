@@ -41,7 +41,7 @@
                  @if(Auth::user()->id ==$post->user_id)
                 <!-- モーダルの中身 open -->
                 <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}" href="/post/{{$post->id}}/update-Form"><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a>
-                <a class="trash-h" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')"><img class="trash-h" src="{{ asset('images/trash-h.png') }}" ></a>
+                <a class="trash-h" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')"><img class="trash" src="{{ asset('images/trash.png') }}" ></a>
                 @endif
                 </div>
                 </div>
