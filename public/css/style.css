@@ -390,7 +390,8 @@ p.icon{
 
 
 .profile-update{
-  margin: 100px;
+  margin: 60px;
+  padding-left: 180px;
   display: flex;
 }
 .profile-update img{
@@ -398,11 +399,14 @@ p.icon{
   width: 100px;
 }
 .profile-add{
-  padding: 20px;
+  padding: 30px;
   font-size: 30px;
   display: flex;
   justify-content:space-between;
   font-size: 25px;
+  position: relative;
+  left: 30px;
+
 }
 .ct-block {
   margin-bottom: 32px;
@@ -412,30 +416,33 @@ p.icon{
 .form-mail,
 .form-password,
 .form-bio{
-  width:50%;
+  width:500px;
   height: 45px;
   padding: 0 10px;
   background: #ddd;
   border-color: #727272;
   border-width: 1px;
   font-size: 20px;
-  display: flex;
-  justify-content: space-around;
+  margin-left: 40px;
+
 
 }
 .f-images{
-  width:50%;
+  width:67%;
   height: 80px;
   padding: 0 10px;
   background: #ddd;
   border-color: #727272;
   border-width: 1px;
   font-size: 20px;
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
+  position: relative;
+  /* right: 5px; */
 
 }
+/* .file-upload-button{ */
+/* position: relative; */
+/* top: 30px; */
+/* } */
 .up-btn{
   position: absolute;
   border-radius: 10px 10px 10px 10px;
