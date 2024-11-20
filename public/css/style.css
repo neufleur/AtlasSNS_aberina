@@ -520,6 +520,7 @@ p.icon{
 .p-name-bio{
   padding:20px 0px 0px 70px;
   font-size: 23px;
+
 }
 .btn{
   margin-left: auto;
@@ -545,4 +546,24 @@ button.btn.btn-primary{
 
 .list-search button.btn.btn-primary{
   margin-right:0px;
+}
+
+ button.f-btn.btn-danger{
+  margin-top: 50px;
+  margin-right: 18px;
+  padding: 10px 30px 10px 30px;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+}
+
+button.f-btn.btn-primary{
+  margin-top: 50px;
+  margin-right: 18px;
+  padding: 10px 30px 10px 30px;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
 }
