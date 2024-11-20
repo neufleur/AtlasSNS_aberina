@@ -449,7 +449,7 @@ p.icon{
   font-family: sans-serif;
   color: #fff;
   background-color: #FF3333;
-  border-color: #FF3333;
+  border: none;
   margin-left: 300px;
 }
 
