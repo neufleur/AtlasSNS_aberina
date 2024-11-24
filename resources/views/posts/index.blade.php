@@ -69,7 +69,7 @@
               @endif
                 <textarea name="post-modal" class="modal_post" cols="10" rows="8"></textarea>
                 <input type="hidden" name="id" class="modal_id" value="">
-                <button class="edit-png"><img src="{{ asset('images/edit.png') }}" width="60px" height="60px"></button>
+                <button class="edit-png-2"><img src="{{ asset('images/edit.png') }}" width="60px" height="60px"></button>
                  <!--編集したものを送信されて保存するため使う　formタグの中に入れて反映させる　-->
                 {{ csrf_field() }}
            </form>

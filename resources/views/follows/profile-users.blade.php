@@ -35,7 +35,7 @@
 <img class="ff-img" src="{{ asset('storage/images/' . $post->user->images) }}" width="90px" height="90px">
 <div class="f-post-name"><br>{{ $post->user->username }}</br>
 <br>{{ $post->post }}</br></div>
-<div class="f-at"><span>{{$post->created_at}}</span></div>
+<div class="f-at"><span>{{$post->created_at->format('Y-m-d H:i')}}</span></div>
 </div>
 @endforeach
 </form>

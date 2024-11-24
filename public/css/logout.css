@@ -73,6 +73,14 @@ body{
     color: #FFF;
     font-weight: lighter;
 }
+#password{
+    padding: 15px;
+    width: 280px;
+    border-radius: 8px;
+    border-width: 1px;
+    margin:0 auto;
+    font-size: 18px;
+}
 .login-btn{
     border-radius: 10px 10px 10px 10px;
     width: 150px;

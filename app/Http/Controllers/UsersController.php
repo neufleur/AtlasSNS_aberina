@@ -41,7 +41,7 @@ public function updateProfile(Request $request){
             'mail.unique:users,mail' =>'このメールアドレスは既に使われています',
             'mail.min' => 'メールアドレスは5文字以上、40文字以下で入力してください',
             'mail.max' =>'メールアドレスは5文字以上、40文字以下で入力してください',
-            'password.required' => 'パスワードが一致しません',
+            'password.required' => 'パスワードは入力必須です',
             'password.min' => 'パスワードは8文字以上、20文字以下で入力してください',
             'password.max' =>'パスワードは8文字以上、20文字以下で入力してください',
             'password.confirmed' =>'確認パスワードが一致していません',
