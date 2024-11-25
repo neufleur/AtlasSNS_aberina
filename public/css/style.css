@@ -550,6 +550,7 @@ button.btn.btn-primary{
   margin-right:0px;
 }
 
+/* フォローリスト　フォローボタン */
  button.f-btn.btn-danger{
   margin-top: 50px;
   margin-right: 18px;
@@ -568,4 +569,24 @@ button.f-btn.btn-primary{
   font-size: 16px;
   border-radius: 8px;
   border: none;
+}
+
+/* 投稿機能削除ボタン */
+
+a.btn.btn-danger{
+  background: transparent;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-color: #fff;
+  outline:0;
+}
+
+a.btn.btn-danger:hover{
+  background: transparent;
+  border: none;
+  border-color: #fff;
+  width: 50px;
+  height: 50px;
+  outline:0;
 }

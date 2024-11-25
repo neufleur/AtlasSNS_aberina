@@ -54,15 +54,18 @@ class PostsController extends Controller
    }
    }
 //編集機能　表示入力
-public function updateForm(){
+public function updateForm($id){
+    $post = Post::find($id);
         $post = Post::where('user_id',\Auth::user()->id)->first(); //該当レコードの最初のレコードのみを取得するもの なぜか　画面が表示されないのはコントローラーが間違ってる可能性あり
        return view('post.update-Form', ['post'=>$post]);
    }
 //編集機能 結果
  public function update (Request $request){
+    $id = $request->input('id');
+    $post = Post::find($id);
 
     if(! isset($post)){
-        $rulus = [
+        $rules = [
             'post' => 'required|min:1|max:150',
         ];
         $message = [
@@ -70,8 +73,8 @@ public function updateForm(){
             'post.min' => '1文字以上で入力してください',
             'post.max' =>'150文字以下で入力してください',
         ];
-    }
-    $validate = Validator::make($request->all(), $rulus, $message, );//バリデーションを実行
+        $validate = Validator::make($request->all(), $rules, $message, );//バリデーションを実行
+    
 
     if ($validate->fails()) {
         return redirect('/top')
@@ -81,15 +84,14 @@ public function updateForm(){
 
     }else{
          //1つ目の処理 リクエスト送るPost::where('id', $id)->updateで投稿を更新
-    $id = $request->input('id');
-    $post = $request->input('post');
 
-     Post::where('id', $id)->update([
-        'post' => $post,
-     ]);
+    $post = $request->input('post');
+    $post->update(['post' => $post ]);
     }
     return redirect('/top');
 }
+}
+
 //削除機能
 public function delete($id){
     \DB::table('posts') //データーベースの投稿された内容読み込む

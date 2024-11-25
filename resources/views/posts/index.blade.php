@@ -28,7 +28,8 @@
 
 <table class="post-table table-hover">
                 <!-- 一覧表示 -->
-                <form action=/post/update method="get">
+                <form action=/post/update method="post">
+                @csrf
                 @foreach($post as $post)
                 <div class="ff-post">
                 <div class="p-img"><img src="{{ asset('storage/images/' . $post->user->images) }}"  width="70px" height="70px"></div>
@@ -40,8 +41,8 @@
                 <div class="edit-trash">
                  @if(Auth::user()->id ==$post->user_id)
                 <!-- モーダルの中身 open -->
-                <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}" href="/post/{{$post->id}}/update-Form"><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a>
-               <div class="trash-png"> <a class="trash" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')" ></a></div>
+           <div class=""><a class="js-modal-open" class="btn btn-primary" post="{{ $post->post }}" post_id="{{ $post->id }}" href="/post/{{$post->id}}/update-Form"><img class="edit-png" src="{{ asset('images/edit.png') }}" ></a></div>
+               <div class="trash-png"> <a class="btn btn-danger" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除します。よろしいでしょうか？')" ><img class="trash"></a></div>
                 @endif
                 </div>
                 </div>
@@ -56,8 +57,9 @@
     <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
-        @csrf
-           <form action=/post/update method="get">
+
+           <form action=/post/update method="post">
+           @csrf
             @if($errors->any())
          <div class="alert alert-danger">
            <ul>

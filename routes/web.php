@@ -43,8 +43,10 @@ Route::get('/post/{id}/update-Form','PostsController@updateForm'); // 編集ペ�
 Route::post('/post/{id}/update-Form','PostsController@updateForm'); //
 
 Route::get('/post/update','PostsController@update'); // 反映させる
+Route::post('/post/update','PostsController@update'); // 反映させる
 
 Route::get('/post/{id}/delete','PostsController@delete'); //削除
+Route::post('/post/{id}/delete','PostsController@delete'); //削除
 
 Route::get('/profile','UsersController@profile');
 Route::post('/profile','UsersController@profile');
