@@ -73,6 +73,9 @@ class UsersController extends Controller
                 $images = $request->file('images')->getClientOriginalName(); //ファイルにimages送る getClientOriginalName アップロードされたファイル名を取得
                 // dd($images);
                 $request->file('images')->storeAs('public/images',$images); //storeAsメソッドを使用することで保存するファイル名を指定できる
+                }else {
+                    // 画像がアップロードされなかった場合の処理
+                    $images = \Auth::user()->images; // 既存の画像のパスを代入
                 }
 
             //updateで更新　テーブルから取得したいユーザーを決める条件として、where句での条件にこの$id変数が設定されている
