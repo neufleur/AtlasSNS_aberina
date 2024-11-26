@@ -9,14 +9,19 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Post;
+use App\Follow;
 
 
 class PostsController extends Controller
 {
     //投稿表示
-    public function index(){
+    public function index(Post $post, User $user, Follow $follow){
+ // フォローしているユーザーのidを取得 pluck()メソッドの中には今回取得したい情報のカラム名
+        $post = Post::query()->whereIn('user_id',  Auth::user()->follows()->pluck('followed_id'))->orWhere('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
 
-        $post = Post::orderBy('created_at', 'desc')->get();
+
+           // フォローしているユーザーの情報を取得
+
 
        return view('posts.index',['post'=> $post]);
    }
@@ -54,26 +59,24 @@ class PostsController extends Controller
    }
    }
 //編集機能　表示入力
-public function updateForm($id){
-    $post = Post::find($id);
+public function updateForm(){
+
         $post = Post::where('user_id',\Auth::user()->id)->first(); //該当レコードの最初のレコードのみを取得するもの なぜか　画面が表示されないのはコントローラーが間違ってる可能性あり
        return view('post.update-Form', ['post'=>$post]);
    }
 //編集機能 結果
  public function update (Request $request){
-    $id = $request->input('id');
-    $post = Post::find($id);
 
     if(! isset($post)){
-        $rules = [
-            'post' => 'required|min:1|max:150',
+        $rulus = [
+            'post-modal' => 'required|min:1|max:150',
         ];
         $message = [
-            'post.required'=>'投稿内容は入力必須です',
-            'post.min' => '1文字以上で入力してください',
-            'post.max' =>'150文字以下で入力してください',
+            'post-modal.required'=>'投稿内容は入力必須です',
+            'post-modal.min' => '1文字以上で入力してください',
+            'post-modal.max' =>'150文字以下で入力してください',
         ];
-        $validate = Validator::make($request->all(), $rules, $message, );//バリデーションを実行
+        $validate = Validator::make($request->all(), $rulus, $message, );//バリデーションを実行
     
 
     if ($validate->fails()) {
@@ -84,9 +87,10 @@ public function updateForm($id){
 
     }else{
          //1つ目の処理 リクエスト送るPost::where('id', $id)->updateで投稿を更新
-
-    $post = $request->input('post');
-    $post->update(['post' => $post ]);
+     $id = $request->input('id');
+    $post = $request->input('post-modal');
+    // dd($post);
+    Post::where('id',$id)->update(['post' => $post ]);
     }
     return redirect('/top');
 }

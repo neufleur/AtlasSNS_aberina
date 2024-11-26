@@ -20,9 +20,9 @@ class UsersController extends Controller
     return view('users.profile', ['auth'=>$auth]);
 }
 
-public function updateProfile(Request $request){
+        public function updateProfile(Request $request){
 
-        if($request->isMethod('post')){
+            if($request->isMethod('post')){
             $rulus = [
                 'username' => 'required|min:2|max:12',
                 'mail' => 'required','email','min:5','max:40',Rule::unique('users')->ignore($request->user_id, 'user_id'),
@@ -52,41 +52,40 @@ public function updateProfile(Request $request){
 
         ];
 
-         }
-        $validate = Validator::make($request->all(), $rulus, $message, );//バリデーションを実行
+            $validate = Validator::make($request->all(), $rulus, $message, );//バリデーションを実行
 
-        if ($validate->fails()) {
-          return redirect('/profile')
-          // エラーを返すか、エラーとともにリダイレクトする
-          -> withInput() // セッション()に入力値すべてを入れる
-          ->withErrors($validate); // セッション(errors)にエラーの情報を入れる　
+            if ($validate->fails()) {
+            return redirect('/profile')
+            // エラーを返すか、エラーとともにリダイレクトする
+            -> withInput() // セッション()に入力値すべてを入れる
+            ->withErrors($validate); // セッション(errors)にエラーの情報を入れる　
 
       }else{
         //inputで最終的に保存したい記述
-       $id = $request->input('id');
-       $username = $request->input('username');
-       $mail = $request->input('mail');
-       $password = $request->input('password');
-       $bio = $request->input('bio');
-       //dd($request->file('images'));
-       //画像登録 if文で画像必須をなくす なければそのままに
-       if(!empty($request->file('images'))) {
-        $images = $request->file('images')->getClientOriginalName(); //ファイルにimages送る getClientOriginalName アップロードされたファイル名を取得
-        //dd($images);
-        $request->file('images')->storeAs('public/images',$images); //storeAsメソッドを使用することで保存するファイル名を指定できる
-       }
+            $id = $request->input('id');
+            $username = $request->input('username');
+            $mail = $request->input('mail');
+            $password = $request->input('password');
+            $bio = $request->input('bio');
+            // dd($request->file('images'));
+            //画像登録 if文で画像必須をなくす なければそのままに
+            if(!empty($request->file('images'))) {
+                $images = $request->file('images')->getClientOriginalName(); //ファイルにimages送る getClientOriginalName アップロードされたファイル名を取得
+                // dd($images);
+                $request->file('images')->storeAs('public/images',$images); //storeAsメソッドを使用することで保存するファイル名を指定できる
+                }
 
-       //updateで更新　テーブルから取得したいユーザーを決める条件として、where句での条件にこの$id変数が設定されている
-       User::where('id', $id)->update([
-         'username' => $username,
-         'mail' => $mail,
-         'password' =>  bcrypt($password), // bcryptでハッシュ化(暗号化)
-         'bio' => $bio,
-         'images' => $images,
-   ]);
-      }
-
- return redirect('/top'); //view()はWebページのアクセス時などのGET処理時 redirect()はフォーム送信などのPOST
+            //updateで更新　テーブルから取得したいユーザーを決める条件として、where句での条件にこの$id変数が設定されている
+                User::where('id', $id)->update([
+                'username' => $username,
+                'mail' => $mail,
+                'password' =>  bcrypt($password), // bcryptでハッシュ化(暗号化)
+                'bio' => $bio,
+                'images' => $images,
+                ]);
+             }
+              }
+                return redirect('/top'); //view()はWebページのアクセス時などのGET処理時 redirect()はフォーム送信などのPOST
 }
 
 

@@ -26,7 +26,7 @@
         <label class="profile-add">password<input type="password" class="form-password" name="password" placeholder="" value=""></label>
         <label class="profile-add">password comfirm<input type="password" class="form-password" name="password_confirmation" placeholder="" value=""></label>
         <label class="profile-add">bio<input type="bio" class="form-bio" name="bio"  placeholder="" value="{{ $auth->bio }}"></label>
-        <label class="profile-add">icon image<input type="file" class="f-images" name="images"></label>
+        <label class="profile-add">icon image<input type="file" class="f-images" name="images" value="{{ $auth->images }}"></label>
         <button id="sbtn" class="up-btn" type="submit" class="btn btn-primary" value="更新">更新</button>
         {{ Form::close() }}
         </div>

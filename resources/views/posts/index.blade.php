@@ -58,7 +58,7 @@
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">
 
-           <form action=/post/update method="post">
+           <form action="/post/update" method="get">
            @csrf
             @if($errors->any())
          <div class="alert alert-danger">

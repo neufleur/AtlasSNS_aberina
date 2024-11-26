@@ -43,6 +43,7 @@ class RegisterController extends Controller
     }
 
     public function register(Request $request){
+
         if($request->isMethod('post')){
             $rulus = [
                 //バリデーションの追加
@@ -50,9 +51,7 @@ class RegisterController extends Controller
                 'mail' => 'required|email|min:5|max:40|unique:users,mail',
                 'password' => 'required|alpha_num|min:8|max:20|confirmed|string',
             ];
-
             $message = [
-
                 'username.required' =>'ユーザー名は入力必須です',
                 'username.min' => 'ユーザー名は2文字以上、12文字以下で入力してください',
                 'username.max' =>'ユーザー名は2文字以上、12文字以下で入力してください',
@@ -66,20 +65,21 @@ class RegisterController extends Controller
                 'password.max' =>'パスワードは8文字以上、20文字以下で入力してください',
                 'password.confirmed' =>'確認パスワードが一致していません',
                 'password.alpha_num' =>'パスワードは英数字で入力してください',
-            ];
-            $validate = Validator::make($request->all(), $rulus, $message, );//バリデーションを実行
 
-        if ($validate->fails()) {
-          return redirect('/profile')
-          // エラーを返すか、エラーとともにリダイレクトする
-          -> withInput() // セッション()に入力値すべてを入れる
-          ->withErrors($validate); // セッション(errors)にエラーの情報を入れる　
+            ];
+        
+                $validate = Validator::make($request->all(), $rulus, $message, );//バリデーションを実行
+
+            if ($validate->fails()) {
+            return redirect('/register')
+            // エラーを返すか、エラーとともにリダイレクトする
+            -> withInput() // セッション()に入力値すべてを入れる
+            ->withErrors($validate); // セッション(errors)にエラーの情報を入れる　
 
            }else{
             $username = $request->input('username');
             $mail = $request->input('mail');
             $password = $request->input('password');
-
 
             User::create([
                 'username' => $username,
@@ -88,13 +88,10 @@ class RegisterController extends Controller
             ]);
             $request->session()->put('username', $username); //セッションへデータを保存　追記
         }
-        return redirect('added');
+            return redirect('added');
         }
-
             return view('auth.register');
-
-              }
-
+        }
 
             public function added(){
                 return view('auth.added');
