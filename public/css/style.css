@@ -506,24 +506,28 @@ p.icon{
 .n-b{
   display: flex;
   padding-bottom: 10px;
+  display: table-row;
+  /* display: table-row プロパティは、要素をテーブルの行として扱うように指定するもの */
 
 }
 .other-name {
   font-size: 22px;
   padding: 20px 0px 0px 0px;
-  margin-right: auto;
+  margin-right: 30px;
 
 }
 .other-bio {
   font-size: 22px;
-  padding: 20px 27px 0px 0px;
+  padding: 20px 0px 0px 0px;
+  margin-right: 30px;
 
 }
 
 .p-name-bio{
-  padding:20px 0px 0px 70px;
+  padding:20px 0px 0px 0px;
   font-size: 23px;
-
+  display: table-cell;
+/* l属性を指定することで要素を横並びにできるのです */
 }
 .btn{
   margin-left: auto;
