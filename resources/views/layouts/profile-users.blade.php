@@ -38,5 +38,6 @@
 <div class="f-at"><span>{{$post->created_at->format('Y-m-d H:i')}}</span></div>
 </div>
 @endforeach
-</form>
+
+
 @endsection
