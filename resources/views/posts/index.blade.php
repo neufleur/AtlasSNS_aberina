@@ -19,7 +19,7 @@
 具体的には、エラーメッセージが1つ以上存在するかどうかを確認し、エラーメッセージが存在する場合は、全てのエラーメッセージをforeachを使って表示させています。-->
 <div >
 <p class="icon"><img class="post-images" src="{{ asset('storage/images/' . Auth::user()->images) }}" width="70px" height="70px">
-<textarea name="post" placeholder="投稿内容を入力してください。" value="post-edit" cols="10" rows="3"></textarea>
+<textarea name="post" style="white-space: pre-wrap;" placeholder="投稿内容を入力してください。" value="post-edit" cols="10" rows="3"></textarea>
 
 <button class="post-png"><img class="post-png" src="{{ asset('images/post.png') }}" ></button></p>
 </div>
@@ -33,8 +33,8 @@
                 @foreach($post as $post)
                 <div class="ff-post">
                 <div class="p-img"><img src="{{ asset('storage/images/' . $post->user->images) }}"  width="70px" height="70px"></div>
-                <div class="f-post-name"><br>{{$post->user->username}}</br>
-                <br>{{$post->post}}</br></div>
+                <div class="f-post-name"><br>{{$post->user->username}}</br></div>
+                <div class="f-post-name" style="white-space: pre-wrap;"><br>{{$post->post}}</br></div>
                <div class="f-at"><span>{{ $post->created_at->format('Y-m-d H:i')}}</span>
               
                 <!-- authorがBook.php（モデル）に定義したメソッドで、nameがテーブルのカラム名を表しています。 -->

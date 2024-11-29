@@ -24,6 +24,7 @@
     left: 40px;
     top: 30px;
     outline: none;
+
 }
 
 .post-png{
@@ -483,6 +484,7 @@ p.icon{
 .ff-post{
  border-bottom: 2px solid #b1b1b1;
  display: flex;
+ padding-bottom: 10px;
 }
 .f-at{
   padding: 10px 30px 0px 0px;
@@ -494,8 +496,9 @@ p.icon{
 .f-post-name{
  position: relative;
  bottom: 10px;
- 
+ display: contents;
 }
+
 
 .other-profile{
   border-bottom: 10px solid #ddd;
@@ -527,7 +530,7 @@ p.icon{
   padding:20px 0px 0px 0px;
   font-size: 23px;
   display: table-cell;
-/* l属性を指定することで要素を横並びにできるのです */
+/* l属性を指定することで要素を横並びにできる */
 }
 .btn{
   margin-left: auto;
