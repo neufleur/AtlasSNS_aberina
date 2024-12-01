@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="{{asset('js/script.js')}}"></script>
     <script src="main.js"></script>
 
 </head>
